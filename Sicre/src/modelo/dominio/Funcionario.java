@@ -109,4 +109,12 @@ public class Funcionario {
 		this.senha = senha;
 	}
 
+	public boolean isSenhaCorreta(String senhaDigitada) {
+		if (this.senha.equals(senhaDigitada)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
