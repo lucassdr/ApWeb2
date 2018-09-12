@@ -5,6 +5,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import componentes.ConstrutorURL;
+import componentes.MensagensAlertas;
 import modelo.dao.FuncionarioDAO;
 import modelo.dominio.Funcionario;
 
@@ -59,7 +61,7 @@ public class LoginMB {
 	 * Métodos
 	 */
 	public String exibirLogin() {
-		return "login.jsf";
+		return ConstrutorURL.REQUEST_PATH_LOGIN;
 	}
 
 	public String acaoAutenticar() {
@@ -69,24 +71,24 @@ public class LoginMB {
 		Funcionario funcDoBanco = dao.obterLogin(this.matricula, this.senha);
 
 		if (funcDoBanco == null) {
-			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário ou Senha inválido!", null);
+			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, MensagensAlertas.NOT_AUTHORIZED, null);
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
 			// Usuário não existe
-			return "index.jsf";
+			return ConstrutorURL.REQUEST_PATH_INDEX;
 
 		} else {
 			if (funcDoBanco.isSenhaCorreta(this.senha)) {
 				this.autenticado = true;
 				this.funcionario = funcDoBanco;
 
-				return "home.jsf";
+				return ConstrutorURL.REQUEST_PATH_HOME;
 			} else {
-				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário ou Senha inválido!",
+				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, MensagensAlertas.USER_NOT_FOUND,
 						null);
 				FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
-				return "index.jsf";
+				return ConstrutorURL.REQUEST_PATH_INDEX;
 			}
 		}
 
