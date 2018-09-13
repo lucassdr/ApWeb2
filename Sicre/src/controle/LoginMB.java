@@ -7,8 +7,8 @@ import javax.faces.context.FacesContext;
 
 import componentes.ConstrutorURL;
 import componentes.MensagensAlertas;
-import modelo.dao.FuncionarioDAO;
-import modelo.dominio.Funcionario;
+import modelo.dao.UsuarioDAO;
+import modelo.dominio.Usuario;
 
 @ManagedBean(name = "loginMB")
 @SessionScoped
@@ -16,7 +16,7 @@ public class LoginMB {
 	/*
 	 * Dados de controle da autenticação
 	 */
-	private Funcionario funcionario = new Funcionario();
+	private Usuario usuario = new Usuario();
 	private boolean autenticado = false;
 
 	/*
@@ -25,12 +25,12 @@ public class LoginMB {
 	private String matricula;
 	private String senha;
 
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public boolean isAutenticado() {
@@ -66,11 +66,11 @@ public class LoginMB {
 
 	public String acaoAutenticar() {
 
-		FuncionarioDAO dao = new FuncionarioDAO();
+		UsuarioDAO dao = new UsuarioDAO();
 
-		Funcionario funcDoBanco = dao.obterLogin(this.matricula, this.senha);
+		Usuario usuarioDoBanco = dao.obter(matricula);
 
-		if (funcDoBanco == null) {
+		if (usuarioDoBanco == null) {
 			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, MensagensAlertas.NOT_AUTHORIZED, null);
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
@@ -78,9 +78,9 @@ public class LoginMB {
 			return ConstrutorURL.REQUEST_PATH_INDEX;
 
 		} else {
-			if (funcDoBanco.isSenhaCorreta(this.senha)) {
+			if (usuarioDoBanco.isSenhaCorreta(this.senha)) {
 				this.autenticado = true;
-				this.funcionario = funcDoBanco;
+				this.usuario = usuarioDoBanco;
 
 				return ConstrutorURL.REQUEST_PATH_HOME;
 			} else {

@@ -1,11 +1,11 @@
 package modelo.dao;
 
-import modelo.dominio.Funcionario;
+import modelo.dominio.Usuario;
 
 public class UsuarioDAO {
 	
-	public Funcionario obter(String matricula) {
-		Funcionario novo = new Funcionario();
+	public Usuario obter(String matricula) {
+		Usuario novo = new Usuario();
 		novo.setMatricula(matricula);
 		novo.setSenha("123");
 		return novo;

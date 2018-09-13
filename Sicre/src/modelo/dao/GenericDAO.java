@@ -21,4 +21,5 @@ public interface GenericDAO<T> {
 	public void gravarTransacao();
 	
 	public void desfazerTransacao();
+	
 }

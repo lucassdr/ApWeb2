@@ -11,12 +11,15 @@
 <body>
 	<h:messages errorStyle="red" infoStyle="blue"></h:messages>
 	<h:form>
-		<h:outputText for="login" value="Matrícula" />
-		<h:inputText id="login" value="#{}" autocomplete="false" required="true"></h:inputText>
+		<h:outputText for="matricula" value="Matrícula" />
+		<h:inputText id="matricula" value="#{}" autocomplete="false" required="true"></h:inputText>
 		
 		<br/>
 		<h:outputText for="senha" value="Senha" />
-		<h:inputSecret id="sennha" value="#{}"></h:inputSecret>
+		<h:inputSecret id="sennha" value="#{loginMB.senha}"></h:inputSecret>
+		
+		<h:commandButton id="enviar" action="#{loginMB.autenticar}" 
+					value="Autenticar"></h:commandButton>
 	</h:form>
 </body>
 </html>

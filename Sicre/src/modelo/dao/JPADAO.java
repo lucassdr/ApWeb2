@@ -8,8 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-public abstract class JPADAO<T> implements GenericDAO<T>
-{
+public abstract class JPADAO<T> implements GenericDAO<T> {
 	protected Class<T> persistentClass;
 	private EntityManager manager;
 
@@ -17,8 +16,7 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 	 * M�todo construtor que
 	 */
 	@SuppressWarnings("unchecked")
-	public JPADAO()
-	{
+	public JPADAO() {
 		super();
 
 		// pegar a classe persistente por reflex�o
@@ -29,15 +27,13 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 		this.manager = JPAUtil.getEntityManager();
 	}
 
-	public JPADAO(EntityManager manager)
-	{
+	public JPADAO(EntityManager manager) {
 		this();
 		this.manager = manager;
 	}
 
 	@Override
-	public EntityManager getEntityManager()
-	{
+	public EntityManager getEntityManager() {
 		// caso o EntityManager tenha sido fechado, deve criar um novo
 		if ((this.manager != null) && (!this.manager.isOpen()))
 			this.manager = JPAUtil.getEntityManager();
@@ -46,14 +42,12 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 	}
 
 	@Override
-	public T lerPorId(Object id)
-	{
+	public T lerPorId(Object id) {
 		return (T) this.getEntityManager().find(this.persistentClass, id);
 	}
 
 	@Override
-	public List<T> lerTodos()
-	{
+	public List<T> lerTodos() {
 		CriteriaBuilder cb = this.getEntityManager().getCriteriaBuilder();
 		CriteriaQuery<T> c = cb.createQuery(this.persistentClass);
 		c.select(c.from(this.persistentClass));
@@ -63,8 +57,7 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 	}
 
 	@Override
-	public T salvar(T objeto)
-	{
+	public T salvar(T objeto) {
 		boolean transacaoAtiva = this.getEntityManager().getTransaction().isActive();
 
 		if (!transacaoAtiva)
@@ -79,8 +72,7 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 	}
 
 	@Override
-	public void excluir(T objeto)
-	{
+	public void excluir(T objeto) {
 		boolean transacaoAtiva = this.getEntityManager().getTransaction().isActive();
 
 		if (!transacaoAtiva)
@@ -94,21 +86,18 @@ public abstract class JPADAO<T> implements GenericDAO<T>
 	}
 
 	@Override
-	public void abrirTransacao()
-	{
+	public void abrirTransacao() {
 		this.getEntityManager().getTransaction().begin();
 	}
 
 	@Override
-	public void gravarTransacao()
-	{
+	public void gravarTransacao() {
 		this.getEntityManager().flush();
 		this.getEntityManager().getTransaction().commit();
 	}
 
 	@Override
-	public void desfazerTransacao()
-	{
+	public void desfazerTransacao() {
 		this.getEntityManager().getTransaction().rollback();
 	}
 
