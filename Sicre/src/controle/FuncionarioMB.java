@@ -44,8 +44,8 @@ public class FuncionarioMB {
 		return "funcionarioEditar.jsf";
 	}
 	
-	public String acaoAbrirAlteracao(Integer codigo) {
-		this.funcionario = this.dao.lerPorId(codigo);
+	public String acaoAbrirAlteracao(Integer matricula) {
+		this.funcionario = this.dao.lerPorId(matricula);
 		return "produtoEditar.jsf";
 	}
 	
@@ -54,8 +54,8 @@ public class FuncionarioMB {
 		return acaoListar();
 	}
 	
-	public String acaoExcluir(Integer codigo) {
-		this.funcionario = this.dao.lerPorId(codigo);
+	public String acaoExcluir(Integer matricula) {
+		this.funcionario = this.dao.lerPorId(matricula);
 		if(this.funcionario != null) {
 			this.dao.excluir(this.funcionario);
 		}
