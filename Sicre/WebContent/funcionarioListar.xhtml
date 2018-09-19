@@ -22,10 +22,9 @@
 
 			<h:column>
 				<f:facet name="header">OpçÕes</f:facet>
-				//editar
-				<h:commandLink action="#{FuncionarioMB.acaoAbrirAlteracao(prod.matricula)}"></h:commandLink>
-				//excluir
-				<h:commandLink action="#{FuncionarioMB.acaoExcluir(prod.matricula)}"></h:commandLink>
+				<h:commandLink action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">Editar</h:commandLink>
+				--
+				<h:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">Excluir</h:commandLink>
 			</h:column>
 
 			<h:column>
