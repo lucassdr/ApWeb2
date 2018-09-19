@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista de funcionários</title>
+</head>
+<body>
+	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
+	<h:form>
+	
+		<h:commandLink action="#{FuncionarioMB.abrirInclusao}">Abrir inclusao</h:commandLink>
+		<br/>
+
+		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionario}"
+			var="func">
+
+			<f:facet name="header">Lista de funcionários</f:facet>
+
+			<h:column>
+				<f:facet name="header">OpçÕes</f:facet>
+				//editar
+				<h:commandLink action="#{FuncionarioMB.acaoAbrirAlteracao(prod.matricula)}"></h:commandLink>
+				//excluir
+				<h:commandLink action="#{FuncionarioMB.acaoExcluir(prod.matricula)}"></h:commandLink>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Matricula: </f:facet>
+				<h:outputText value="#{func.matricula}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Nome: </f:facet>
+				<h:outputText value="#{func.nome}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Sobrenome: </f:facet>
+				<h:outputText value="#{func.sobrenome}"></h:outputText>
+			</h:column>
+
+			<!-- <h:column>
+				<f:facet name="header">Tipo sanguíneo: </f:facet>
+				<h:selectManyListbox value="#{func.tipoSanguineo}">
+					<f:selectItem itemValue="1" itemLabel="O-" />
+					<f:selectItem itemValue="2" itemLabel="O+" />
+					<f:selectItem itemValue="3" itemLabel="A-" />
+					<f:selectItem itemValue="4" itemLabel="A+" />
+					<f:selectItem itemValue="5" itemLabel="B-" />
+					<f:selectItem itemValue="6" itemLabel="B+" />
+					<f:selectItem itemValue="7" itemLabel="AB-" />
+					<f:selectItem itemValue="8" itemLabel="AB+" />
+				</h:selectManyListbox>
+			</h:column> -->
+			<h:column>
+				<f:facet name="header">Tipo sanguíneo</f:facet>
+				<h:outputText value="#{func.tipoSanguineo}"></h:outputText>
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Data de nascimento: </f:facet>
+				<h:outputText value="#{func.dataNascimento}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Sexo: </f:facet>
+				<h:outputText value="#{func.sexo}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">CPF: </f:facet>
+				<h:outputText value="#{func.cpf}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Registro Geral (RG): </f:facet>
+				<h:outputText value="#{func.rg}"></h:outputText>
+			</h:column>
+
+		</h:dataTable>
+
+	</h:form>
+</body>
+</html>
