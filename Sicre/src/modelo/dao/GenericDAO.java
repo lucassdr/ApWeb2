@@ -8,7 +8,7 @@ public interface GenericDAO<T> {
 	
 	public EntityManager getEntityManager();
 	
-	public T lerPorId(Object id);
+	public T lerPorId(Object matricula);
 
 	public List<T> lerTodos();
 	
