@@ -42,8 +42,8 @@ public abstract class JPADAO<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public T lerPorId(Object id) {
-		return (T) this.getEntityManager().find(this.persistentClass, id);
+	public T lerPorId(Object matricula) {
+		return (T) this.getEntityManager().find(this.persistentClass, matricula);
 	}
 
 	@Override
