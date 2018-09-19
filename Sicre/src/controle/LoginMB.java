@@ -51,45 +51,41 @@ public class LoginMB {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	//Métodos
+
+	// Métodos
 	public String exibirLogin() {
 		return "index.jsf";
-		//TODO alterar tela index.jsf por login.jsf
+		// TODO alterar tela index.jsf por login.jsf
 	}
-	
+
 	public String acaoAutenticar() {
-		
+
 		UsuarioDAO dao = new UsuarioDAO();
-		
-		//obtendo dados do usuário do banco
+
+		// obtendo dados do usuário do banco
 		Usuario usuarioBanco = dao.obter(login, senha);
-		
-		if(usuarioBanco == null) {
-			//TODO alterar mensagem de erro
+
+		if (usuarioBanco == null) {
+			// TODO alterar mensagem de erro
 			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuário não existe", null);
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
-			
-			//usuario não existe
+
+			// usuario não existe
 			return "index.jsf";
-		}else {
-			if(usuarioBanco.senhaCorreta(this.senha)) {
+		} else {
+			if (usuarioBanco.senhaCorreta(this.senha)) {
 				this.autenticado = true;
 				this.usuario = usuarioBanco;
 				return "home.jsf";
-			}else {
+			} else {
 				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usu�rio/Senha inv�lido!", null);
 				FacesContext.getCurrentInstance().addMessage(null, mensagem);
-				
+
 				return "index.jsf";
 			}
-			
+
 		}
-		
-		
-		
-		
-		
+
 	}
 
 }
