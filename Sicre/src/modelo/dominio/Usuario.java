@@ -2,19 +2,13 @@ package modelo.dominio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "tab_usuario")
-@SequenceGenerator(name = "USUARIO_PK", sequenceName = "SEQ_USUARIO_PK", allocationSize = 1, initialValue = 1000)
+
 public class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USUARIO_PK")
 	private Integer id;
 
 	@Column(name = "LOGIN", length = 10, unique = true, nullable = false)
