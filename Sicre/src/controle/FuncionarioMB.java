@@ -50,7 +50,7 @@ public class FuncionarioMB {
 
 	public String acaoAbrirAlteracao(Integer matricula) {
 		this.funcionario = this.dao.lerPorId(matricula);
-		return "produtoEditar.jsf";
+		return "funcionarioEditar.jsf";
 	}
 
 	public String acaoSalvar() {
