@@ -25,7 +25,7 @@ public class Funcionario {
 	@Column(name = "SOBRENOME", nullable = false)
 	private String sobrenome;
 
-	@Column(name = "TIPO_SANGUINEIO", nullable = false)
+	@Column(name = "TIPO_SANGUINEO", nullable = false)
 	private String tipoSanguineo;
 
 	@Column(name = "DATA_NASCIMENTO", length = 10, nullable = false)
