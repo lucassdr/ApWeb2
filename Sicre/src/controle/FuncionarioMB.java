@@ -45,17 +45,19 @@ public class FuncionarioMB {
 
 	public String abrirInclusao() {
 		this.funcionario = new Funcionario();
+
 		return "funcionarioEditar.jsf";
 	}
 
 	public String acaoAbrirAlteracao(Integer matricula) {
 		this.funcionario = this.dao.lerPorId(matricula);
-		
+
 		return "funcionarioEditar.jsf";
 	}
 
 	public String acaoSalvar() {
 		this.dao.salvar(this.funcionario);
+
 		return acaoListar();
 	}
 
@@ -66,4 +68,5 @@ public class FuncionarioMB {
 
 		return acaoListar();
 	}
+
 }
