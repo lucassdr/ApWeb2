@@ -18,16 +18,15 @@
 
 		<h:outputText value="Nenhum Funcionário foi encontrado!"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
+
 		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
 			border="1" cellspacing="0" cellpadding="3">
 
 			<f:facet name="header">Lista de funcionários</f:facet>
-			<f:facet name="footer">Quantidade de Funcionários: <h:outputText
-					value="#{FuncionarioMB.funcionarios.size()}">Listas</h:outputText>
+			<f:facet name="footer">Quantidade de Funcionários: 
+				<b><h:outputText value="#{FuncionarioMB.funcionarios.size()}"></h:outputText></b>
 			</f:facet>
-
-
 
 			<h:column>
 				<f:facet name="header">OpçÕes</f:facet>

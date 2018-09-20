@@ -14,44 +14,50 @@
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Matrícula: " />
 			<h:outputText value="#{FuncionarioMB.funcionario.matricula}"></h:outputText>
-	
+
 			<h:outputLabel value="Nome: " />
 			<h:inputText id="nome" value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
-	
+
 			<h:outputLabel value="Sobrenome" />
 			<h:inputText id="sobrenome"
 				value="#{FuncionarioMB.funcionario.sobrenome}"></h:inputText>
-	
-			<h:outputLabel value="Tipo sanguíneo: " />
-			<h:inputText id="tipoSanguineo"
-				value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
 
-	
+
+			<h:outputLabel value="Tipo Sanguíneo: " />
+			<h:selectOneMenu id="tipoSanguineo"
+				value="#{FuncionarioMB.selectedTipoSanguineo}">
+				<f:selectItems value="#{FuncionarioMB.tipoSanguineo}" />
+			</h:selectOneMenu>
+
+
 			<h:outputLabel value="Data de nascimento: "></h:outputLabel>
-			<h:inputText id="dataNascimento" value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
-			
-				
+			<h:inputText id="dataNascimento"
+				value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
+
+
 			<h:outputLabel value="Sexo: " />
 			<h:selectOneRadio id="sexo" value="#{FuncionarioMB.funcionario.sexo}">
 				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
 				<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
 			</h:selectOneRadio>
-			
-			<h:outputLabel value="CPF: "/>
+
+			<h:outputLabel value="CPF: " />
 			<h:inputText id="cpf" value="#{FuncionarioMB.funcionario.cpf}"></h:inputText>
-			
-			<h:outputLabel value="Registro Geral (RG): "/>
+
+			<h:outputLabel value="Registro Geral (RG): " />
 			<h:inputText id="rg" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
-			
+
 			<h:outputLabel value="Senha: " />
-			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}"/>
-			
-			
+			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
+
+
 			<h:panelGroup>
-					<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}" value="Salvar"></h:commandButton>
-					<h:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}" value="Cancelar" immediate="true"></h:commandButton>
+				<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
+					value="Salvar"></h:commandButton>
+				<h:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
+					value="Cancelar" immediate="true"></h:commandButton>
 			</h:panelGroup>
-	 	</h:panelGrid>
+		</h:panelGrid>
 	</h:form>
 
 </body>
