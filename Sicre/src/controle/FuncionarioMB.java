@@ -13,8 +13,8 @@ import modelo.dominio.Funcionario;
 public class FuncionarioMB {
 
 	// Atributos
-	private Funcionario funcionario = new Funcionario();
 	private FuncionarioDAO dao = new FuncionarioDAO();
+	private Funcionario funcionario = new Funcionario();
 
 	private List<Funcionario> funcionarios = null;
 
@@ -27,42 +27,41 @@ public class FuncionarioMB {
 	}
 
 	public List<Funcionario> getFuncionarios() {
-		if(this.funcionarios == null)
+		if (this.funcionarios == null)
 			this.funcionarios = this.dao.lerTodos();
-		
-		return funcionarios;
+
+		return dao.lerTodos();
 	}
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
-	
-	//Métodos
+
+	// Métodos
 	public String acaoListar() {
 		return "funcionarioListar.jsf";
 	}
-	
+
 	public String abrirInclusao() {
 		this.funcionario = new Funcionario();
 		return "funcionarioEditar.jsf";
 	}
-	
+
 	public String acaoAbrirAlteracao(Integer matricula) {
 		this.funcionario = this.dao.lerPorId(matricula);
 		return "produtoEditar.jsf";
 	}
-	
+
 	public String acaoSalvar() {
 		this.dao.salvar(this.funcionario);
 		return acaoListar();
 	}
-	
+
 	public String acaoExcluir(Integer matricula) {
 		this.funcionario = this.dao.lerPorId(matricula);
-		if(this.funcionario != null) {
+		if (this.funcionario != null)
 			this.dao.excluir(this.funcionario);
-		}
-		
+
 		return acaoListar();
 	}
 
