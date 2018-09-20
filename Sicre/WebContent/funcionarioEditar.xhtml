@@ -24,10 +24,7 @@
 
 
 			<h:outputLabel value="Tipo Sanguíneo: " />
-			<h:selectOneMenu id="tipoSanguineo"
-				value="#{FuncionarioMB.selectedTipoSanguineo}">
-				<f:selectItems value="#{FuncionarioMB.tipoSanguineo}" />
-			</h:selectOneMenu>
+			<h:inputText id="tipoSanguineo" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
 
 
 			<h:outputLabel value="Data de nascimento: "></h:outputLabel>
