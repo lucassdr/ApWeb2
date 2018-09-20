@@ -11,17 +11,20 @@
 <body>
 	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
 	<h:form>
-	
-		<h:commandLink action="#{FuncionarioMB.abrirInclusao}">Abrir inclusao</h:commandLink>
-		<br/>
 
-		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionario}" var="func">
+		<h:commandLink action="#{FuncionarioMB.abrirInclusao}">Abrir inclusao</h:commandLink>
+		<br />
+
+		<h:outputText value="Nenhum Funcionário foi encontrado!" rendered="#{empty FuncionarioMB.funcionarios}"/>
+		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}" rendered="#{not empty FuncionarioMB.funcionarios}"
+			var="func" border="1" cellspacing="0" cellpadding="3">
 
 			<f:facet name="header">Lista de funcionários</f:facet>
 
 			<h:column>
 				<f:facet name="header">OpçÕes</f:facet>
-				<h:commandLink action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">Editar</h:commandLink>
+				<h:commandLink
+					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">Editar</h:commandLink>
 				--
 				<h:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">Excluir</h:commandLink>
 			</h:column>
@@ -41,25 +44,13 @@
 				<h:outputText value="#{func.sobrenome}"></h:outputText>
 			</h:column>
 
-			<!-- <h:column>
-				<f:facet name="header">Tipo sanguíneo: </f:facet>
-				<h:selectManyListbox value="#{func.tipoSanguineo}">
-					<f:selectItem itemValue="1" itemLabel="O-" />
-					<f:selectItem itemValue="2" itemLabel="O+" />
-					<f:selectItem itemValue="3" itemLabel="A-" />
-					<f:selectItem itemValue="4" itemLabel="A+" />
-					<f:selectItem itemValue="5" itemLabel="B-" />
-					<f:selectItem itemValue="6" itemLabel="B+" />
-					<f:selectItem itemValue="7" itemLabel="AB-" />
-					<f:selectItem itemValue="8" itemLabel="AB+" />
-				</h:selectManyListbox>
-			</h:column> -->
+
 			<h:column>
 				<f:facet name="header">Tipo sanguíneo</f:facet>
 				<h:outputText value="#{func.tipoSanguineo}"></h:outputText>
 			</h:column>
-			
-			
+
+
 			<h:column>
 				<f:facet name="header">Data de nascimento: </f:facet>
 				<h:outputText value="#{func.dataNascimento}"></h:outputText>
