@@ -31,6 +31,7 @@ public class FuncionarioMB {
 			this.funcionarios = this.dao.lerTodos();
 
 		return dao.lerTodos();
+
 	}
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
@@ -64,5 +65,4 @@ public class FuncionarioMB {
 
 		return acaoListar();
 	}
-
 }
