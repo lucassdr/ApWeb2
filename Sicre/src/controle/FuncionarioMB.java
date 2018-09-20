@@ -27,6 +27,9 @@ public class FuncionarioMB {
 	}
 
 	public List<Funcionario> getFuncionarios() {
+		if(this.funcionarios == null)
+			this.funcionarios = this.dao.lerTodos();
+		
 		return funcionarios;
 	}
 
