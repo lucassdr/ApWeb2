@@ -1,32 +1,35 @@
 package controle;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import componentes.CaminhoURL;
-import modelo.dao.UsuarioDAO;
-import modelo.dominio.Usuario;
+import modelo.dao.FuncionarioDAO;
+import modelo.dominio.Funcionario;
 
 @ManagedBean(name = "loginMB")
 @SessionScoped
 public class LoginMB {
 
 	// Dados de controle de autenticacao
-	private Usuario usuario = new Usuario();
+
+	private Funcionario funcionario = new Funcionario();
 	private boolean autenticado = false;
 
 	// Dados do formulário de login
 	private String login;
 	private String senha;
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public boolean isAutenticado() {
@@ -56,27 +59,40 @@ public class LoginMB {
 	// Métodos
 	public String exibirLogin() {
 		return CaminhoURL.REQUEST_PATH_LOGIN;
-		// TODO alterar tela index.jsf por login.jsf
 	}
 
 	public String acaoAutenticar() {
 
-		UsuarioDAO dao = new UsuarioDAO();
+		FuncionarioDAO dao = new FuncionarioDAO();
 
 		// obtendo dados do usuário do banco
-		Usuario usuarioBanco = dao.obter(login, senha);
+		List<Funcionario> funcionarios = dao.lerTodos();
 
-		if (usuarioBanco == null) {
+		boolean seguir = false;
+
+		for (Funcionario func : funcionarios) {
+			if (func.getCpf().equals(login)) {
+
+				// password = DigestUtils.sha256Hex(password);
+				if (func.getSenha().equals(senha)) {
+					seguir = true;
+				}
+			}
+		}
+
+		if (!seguir) {
+
 			// TODO alterar mensagem de erro
 			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuário não existe", null);
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
 			// usuario não existe
-			return CaminhoURL.REQUEST_PATH_LOGIN;
+			return CaminhoURL.REQUEST_PATH_LOGIN + CaminhoURL.FACES_REDIRECT;
 		} else {
-			if (usuarioBanco.senhaCorreta(this.senha)) {
+			if (seguir) {
 				this.autenticado = true;
-				this.usuario = usuarioBanco;
+				// this.funcionario = funcBanco;
+
 				return CaminhoURL.REQUEST_PATH_HOME;
 			} else {
 				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário/Senha inválido!", null);
