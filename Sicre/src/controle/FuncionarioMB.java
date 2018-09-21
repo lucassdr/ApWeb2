@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import componentes.CaminhoURL;
 import modelo.dao.FuncionarioDAO;
 import modelo.dominio.Funcionario;
 
@@ -40,19 +41,19 @@ public class FuncionarioMB {
 
 	// Métodos
 	public String acaoListar() {
-		return "funcionarioListar.jsf";
+		return CaminhoURL.REQUEST_PATH_EMPLOYEE_LIST + CaminhoURL.FACES_REDIRECT;
 	}
 
 	public String abrirInclusao() {
 		this.funcionario = new Funcionario();
 
-		return "funcionarioEditar.jsf";
+		return CaminhoURL.REQUEST_PATH_EMPLOYEE;
 	}
 
 	public String acaoAbrirAlteracao(Integer matricula) {
 		this.funcionario = this.dao.lerPorId(matricula);
 
-		return "funcionarioEditar.jsf";
+		return CaminhoURL.REQUEST_PATH_EMPLOYEE;
 	}
 
 	public String acaoSalvar() {

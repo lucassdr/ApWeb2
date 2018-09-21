@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import componentes.CaminhoURL;
 import modelo.dao.UsuarioDAO;
 import modelo.dominio.Usuario;
 
@@ -54,7 +55,7 @@ public class LoginMB {
 
 	// Métodos
 	public String exibirLogin() {
-		return "index.jsf";
+		return CaminhoURL.REQUEST_PATH_INDEX;
 		// TODO alterar tela index.jsf por login.jsf
 	}
 
@@ -71,17 +72,17 @@ public class LoginMB {
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
 			// usuario não existe
-			return "index.jsf";
+			return CaminhoURL.REQUEST_PATH_INDEX;
 		} else {
 			if (usuarioBanco.senhaCorreta(this.senha)) {
 				this.autenticado = true;
 				this.usuario = usuarioBanco;
-				return "home.jsf";
+				return CaminhoURL.REQUEST_PATH_HOME;
 			} else {
 				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usu�rio/Senha inv�lido!", null);
 				FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
-				return "index.jsf";
+				return CaminhoURL.REQUEST_PATH_INDEX;
 			}
 
 		}
