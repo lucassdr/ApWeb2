@@ -72,7 +72,6 @@ public class LoginMB {
 
 		for (Funcionario func : funcionarios) {
 			if (func.getCpf().equals(login)) {
-
 				// password = DigestUtils.sha256Hex(password);
 				if (func.getSenha().equals(senha)) {
 					seguir = true;
@@ -93,7 +92,7 @@ public class LoginMB {
 				this.autenticado = true;
 				// this.funcionario = funcBanco;
 
-				return CaminhoURL.REQUEST_PATH_HOME;
+				return CaminhoURL.REQUEST_PATH_HOME + CaminhoURL.FACES_REDIRECT;
 			} else {
 				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário/Senha inválido!", null);
 				FacesContext.getCurrentInstance().addMessage(null, mensagem);
