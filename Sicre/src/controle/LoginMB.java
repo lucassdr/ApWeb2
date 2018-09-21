@@ -55,7 +55,7 @@ public class LoginMB {
 
 	// Métodos
 	public String exibirLogin() {
-		return CaminhoURL.REQUEST_PATH_INDEX;
+		return CaminhoURL.REQUEST_PATH_LOGIN;
 		// TODO alterar tela index.jsf por login.jsf
 	}
 
@@ -72,17 +72,17 @@ public class LoginMB {
 			FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
 			// usuario não existe
-			return CaminhoURL.REQUEST_PATH_INDEX;
+			return CaminhoURL.REQUEST_PATH_LOGIN;
 		} else {
 			if (usuarioBanco.senhaCorreta(this.senha)) {
 				this.autenticado = true;
 				this.usuario = usuarioBanco;
 				return CaminhoURL.REQUEST_PATH_HOME;
 			} else {
-				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usu�rio/Senha inv�lido!", null);
+				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário/Senha inválido!", null);
 				FacesContext.getCurrentInstance().addMessage(null, mensagem);
 
-				return CaminhoURL.REQUEST_PATH_INDEX;
+				return CaminhoURL.REQUEST_PATH_LOGIN;
 			}
 
 		}
