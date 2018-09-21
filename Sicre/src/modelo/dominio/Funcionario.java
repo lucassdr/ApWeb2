@@ -42,6 +42,15 @@ public class Funcionario {
 
 	@Column(name = "SENHA", length = 50, nullable = false)
 	private String senha;
+	
+	public boolean senhaCorreta(String senhaDigitada) {
+		if (this.senha.equals(senhaDigitada)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 
 	// @Column(name = "MATRICULA", length = 20, unique = true, nullable = false,)
 	// private String matricula;
