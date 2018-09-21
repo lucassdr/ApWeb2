@@ -2,6 +2,6 @@ package modelo.dao;
 
 import modelo.dominio.Funcionario;
 
-public class FuncionarioDAO extends JPADAO<Funcionario>{
+public class FuncionarioDAO extends JPADAO<Funcionario> {
 
 }
