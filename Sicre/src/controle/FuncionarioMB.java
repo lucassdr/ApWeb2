@@ -1,5 +1,8 @@
 package controle;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -57,8 +60,10 @@ public class FuncionarioMB {
 	}
 
 	public String acaoSalvar() {
+		String senhaTemporaria = funcionario.getSenha();
+		convertStringToMD5(funcionario.getSenha());
+		funcionario.setSenha(convertStringToMD5(senhaTemporaria));		
 		this.dao.salvar(this.funcionario);
-
 		return acaoListar();
 	}
 
@@ -68,6 +73,28 @@ public class FuncionarioMB {
 			this.dao.excluir(this.funcionario);
 
 		return acaoListar();
+	}
+
+	private String convertStringToMD5(String valor) {
+		MessageDigest messageDisgest;
+		try {
+			messageDisgest = MessageDigest.getInstance("MD5");
+			byte[] valorMD5 = messageDisgest.digest(valor.getBytes("UTF-8"));
+			StringBuffer sb = new StringBuffer();
+			for (byte b : valorMD5) {
+				sb.append(Integer.toHexString((b & 0xFF) | 0x100).substring(1, 3));
+			}
+
+			return sb.toString();
+
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 
 }
