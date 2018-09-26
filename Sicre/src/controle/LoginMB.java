@@ -75,11 +75,7 @@ public class LoginMB {
 
 		for (Funcionario func : funcionarios) {
 			if (func.getCpf().equals(login)) {
-				// password = DigestUtils.sha256Hex(password);
-				
-				
 				senha = convertStringToMD5(senha);
-				System.out.println("SENHA:  " + senha);
 				if (func.getSenha().equals(senha)) {
 					seguir = true;
 				}
