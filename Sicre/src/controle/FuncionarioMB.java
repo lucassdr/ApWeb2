@@ -29,12 +29,14 @@ public class FuncionarioMB {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-
+	
+	// TODO rever implementação do método abaixo
 	public List<Funcionario> getFuncionarios() {
 		if (this.funcionarios == null)
 			this.funcionarios = this.dao.lerTodos();
-
+		
 		return dao.lerTodos();
+		//return funcionarios;
 
 	}
 
