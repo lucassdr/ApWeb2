@@ -6,75 +6,75 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Lista de funcionários</title>
+<title>#{msgs.tituloFuncionarioListar}</title>
 </head>
 <body>
 	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
 	<h:form>
 
-		<h:commandLink action="#{FuncionarioMB.abrirInclusao}">Abrir inclusao</h:commandLink>
+		<h:commandLink action="#{FuncionarioMB.abrirInclusao}" value="#{msgs.abrirInclusao}"></h:commandLink>
 		<br />
 
 
-		<h:outputText value="Nenhum Funcionário foi encontrado!"
+		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
 		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
 			border="1" cellspacing="0" cellpadding="3">
 
-			<f:facet name="header">Lista de funcionários</f:facet>
-			<f:facet name="footer">Quantidade de Funcionários: 
+			<f:facet name="header">#{msgs.listaDeFuncionarios}</f:facet>
+			<f:facet name="footer">#{msgs.qtdFuncionarios} 
 				<b><h:outputText value="#{FuncionarioMB.funcionarios.size()}"></h:outputText></b>
 			</f:facet>
 
 			<h:column>
-				<f:facet name="header">OpçÕes</f:facet>
+				<f:facet name="header">#{msgs.textoOpcoes}</f:facet>
 				<h:commandLink
-					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">Editar</h:commandLink>
+					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">#{msgs.textoEditar}</h:commandLink>
 				--
-				<h:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">Excluir</h:commandLink>
+				<h:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">#{msgs.textoExcluir}</h:commandLink>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Matricula: </f:facet>
+				<f:facet name="header">#{msgs.textoMatricula} </f:facet>
 				<h:outputText value="#{func.matricula}"></h:outputText>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Nome: </f:facet>
+				<f:facet name="header">#{msgs.textoNome} </f:facet>
 				<h:outputText value="#{func.nome}"></h:outputText>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Sobrenome: </f:facet>
+				<f:facet name="header">#{msgs.textoSobrenome} </f:facet>
 				<h:outputText value="#{func.sobrenome}"></h:outputText>
 			</h:column>
 
 
 			<h:column>
-				<f:facet name="header">Tipo sanguíneo</f:facet>
+				<f:facet name="header">#{msgs.textoTipoSanguineo} </f:facet>
 				<h:outputText value="#{func.tipoSanguineo}"></h:outputText>
 			</h:column>
 
 
 			<h:column>
-				<f:facet name="header">Data de nascimento: </f:facet>
+				<f:facet name="header">#{msgs.textoDataNascimento} </f:facet>
 				<h:outputText value="#{func.dataNascimento}"></h:outputText>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Sexo: </f:facet>
+				<f:facet name="header">#{msgs.textoSexo} </f:facet>
 				<h:outputText value="#{func.sexo}"></h:outputText>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">CPF: </f:facet>
+				<f:facet name="header">#{msgs.textoCpf} </f:facet>
 				<h:outputText value="#{func.cpf}"></h:outputText>
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Registro Geral (RG): </f:facet>
+				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
 			</h:column>
 

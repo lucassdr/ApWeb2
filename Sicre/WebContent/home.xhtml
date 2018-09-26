@@ -6,12 +6,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Menu - Home</title>
+<title>#{msgs.tituloHome}</title>
 </head>
 <body>
 	<h:form>
-		<h:outputText value="Seja bem vindo(a) #{loginMB.funcionario.cpf}" />
-		<h:commandLink value="Cadastro de funcionários" action="#{FuncionarioMB.acaoListar}"></h:commandLink>
+		<h:outputText value="#{msgs.textoBemVindo} #{loginMB.funcionario.matricula}" />
+		<h:commandLink value="#{msgs.botaoCadastroFuncionario}" action="#{FuncionarioMB.acaoListar}"></h:commandLink>
 	</h:form>
 </body>
 </html>

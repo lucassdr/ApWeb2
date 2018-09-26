@@ -6,53 +6,53 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Editar funcionário</title>
+<title>#{msgs.tituloFuncionarioEditar}</title>
 </head>
 <body>
 
 	<h:form>
 		<h:panelGrid columns="2">
-			<h:outputLabel value="Matrícula: " />
+			<h:outputLabel value="#{msgs.textoMatricula} " />
 			<h:outputText value="#{FuncionarioMB.funcionario.matricula}"></h:outputText>
 
-			<h:outputLabel value="Nome: " />
+			<h:outputLabel value="#{msgs.textoNome} " />
 			<h:inputText id="nome" value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
 
-			<h:outputLabel value="Sobrenome" />
+			<h:outputLabel value="#{msgs.textoSobrenome}" />
 			<h:inputText id="sobrenome"
 				value="#{FuncionarioMB.funcionario.sobrenome}"></h:inputText>
 
 
-			<h:outputLabel value="Tipo Sanguíneo: " />
+			<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
 			<h:inputText id="tipoSanguineo" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
 
 
-			<h:outputLabel value="Data de nascimento: "></h:outputLabel>
+			<h:outputLabel value="#{msgs.textoDataNascimento} "></h:outputLabel>
 			<h:inputText id="dataNascimento"
 				value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
 
 
-			<h:outputLabel value="Sexo: " />
+			<h:outputLabel value="#{msgs.textoSexo} " />
 			<h:selectOneRadio id="sexo" value="#{FuncionarioMB.funcionario.sexo}">
-				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
-				<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
+				<f:selectItem itemValue="Masculino" itemLabel="#{msgs.textoSexoMasculino}" />
+				<f:selectItem itemValue="Feminino" itemLabel="#{msgs.textoSexoFeminino}" />
 			</h:selectOneRadio>
 
-			<h:outputLabel value="CPF: " />
+			<h:outputLabel value="#{msgs.textoCpf} " />
 			<h:inputText id="cpf" value="#{FuncionarioMB.funcionario.cpf}"></h:inputText>
 
-			<h:outputLabel value="Registro Geral (RG): " />
+			<h:outputLabel value="#{msgs.textoRegistroGeralRG} " />
 			<h:inputText id="rg" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
 
-			<h:outputLabel value="Senha: " />
+			<h:outputLabel value="#{msgs.textoSenha} " />
 			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
 
 
 			<h:panelGroup>
 				<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
-					value="Salvar"></h:commandButton>
+					value="#{msgs.botaoSalvar}"></h:commandButton>
 				<h:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
-					value="Cancelar" immediate="true"></h:commandButton>
+					value="#{msgs.botaoCancelar}" immediate="true"></h:commandButton>
 			</h:panelGroup>
 		</h:panelGrid>
 	</h:form>

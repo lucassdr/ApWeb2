@@ -7,19 +7,19 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Autenticação</title>
+<title>#{msgs.tituloLogin}</title>
 </head>
 <body>
 	<h:messages errorStyle="color: red" infoStyle="color: blue" />
 	<h:form>
-		<h:outputLabel for="login" value="Usuário: " />
+		<h:outputLabel for="login" value="#{msgs.campoNomeUsuario} " />
 		<h:inputText id="login" value="#{loginMB.login}" required="true"></h:inputText> <br/>
 		
-		<h:outputLabel for="senha" value="Senha: " />
+		<h:outputLabel for="senha" value="#{msgs.campoSenha} " />
 		<h:inputSecret id="senha" value="#{loginMB.senha}" required="true"></h:inputSecret>	 <br/>
 		
 		<h:commandButton id="enviar" action="#{loginMB.acaoAutenticar}" 
-					value="Autenticar"></h:commandButton>
+					value="#{msgs.botaoLogin}"></h:commandButton>
 	</h:form>
 </body>
 </html>
