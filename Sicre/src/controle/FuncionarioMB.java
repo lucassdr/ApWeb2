@@ -76,6 +76,10 @@ public class FuncionarioMB {
 
 		return acaoListar();
 	}
+	
+	public String menuPrincipal() {
+		return CaminhoURL.REQUEST_PATH_HOME + CaminhoURL.FACES_REDIRECT;
+	}
 
 	private String convertStringToMD5(String valor) {
 		MessageDigest messageDisgest;
