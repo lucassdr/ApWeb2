@@ -24,11 +24,22 @@
 			<h:inputText id="sobrenome" required="true"
 				value="#{FuncionarioMB.funcionario.sobrenome}"></h:inputText>
 
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
+				<h:selectOneMenu id="tipoSanguineo" value="#{FuncionarioMB.funcionario.tipoSanguineo}">
+					<f:selectItem itemValue="A+" itemLabel="A+"></f:selectItem>
+					<f:selectItem itemValue="A-" itemLabel="A-"></f:selectItem>
+					<f:selectItem itemValue="B+" itemLabel="B+"></f:selectItem>
+					<f:selectItem itemValue="B-" itemLabel="B-"></f:selectItem>
+					<f:selectItem itemValue="AB+" itemLabel="AB+"></f:selectItem>
+					<f:selectItem itemValue="AB-" itemLabel="B-"></f:selectItem>
+					<f:selectItem itemValue="O+" itemLabel="O+"></f:selectItem>
+					<f:selectItem itemValue="O-" itemLabel="O-"></f:selectItem>
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<!-- <h:inputText id="tipoSanguineo" required="true" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText> -->
 
-			<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
-			<h:inputText id="tipoSanguineo" required="true" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
-
-
+			<br/>
 			<h:outputLabel value="#{msgs.textoDataNascimento} "></h:outputLabel>
 			<h:inputText id="dataNascimento" required="true"
 				value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
@@ -47,7 +58,7 @@
 			<h:inputText id="rg" required="true" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoSenha} " />
-			<h:inputSecret id="senha" required="true" value="#{FuncionarioMB.funcionario.senha}" />
+			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
 
 
 			<h:panelGroup>

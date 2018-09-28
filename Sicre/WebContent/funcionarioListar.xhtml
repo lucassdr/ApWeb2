@@ -11,25 +11,27 @@
 <body>
 	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
 	<h:form>
-		
-		<h:commandButton value="#{msgs.menuPrincipal}" action="#{FuncionarioMB.menuPrincipal}"></h:commandButton>
-		
-		<br/>
-		<br/>
-		
-		<h:commandButton action="#{FuncionarioMB.abrirInclusao}" value="#{msgs.buttonAbrirInclusao}"></h:commandButton>
+
+		<h:commandButton value="#{msgs.menuPrincipal}"
+			action="#{FuncionarioMB.menuPrincipal}"></h:commandButton>
+
+		<br />
+		<br />
+
+		<h:commandButton action="#{FuncionarioMB.abrirInclusao}"
+			value="#{msgs.buttonAbrirInclusao}"></h:commandButton>
 		<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
 		<br />
 		<f:facet name="header">
 			<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
 		</f:facet>
-		<br/>
+		<br />
 		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
 		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
-			border="1" cellspacing="0" cellpadding="3">
+			border="1" cellspacing="0" cellpadding="3" >
 
 			<f:facet name="header">#{msgs.listaDeFuncionarios}</f:facet>
 			<f:facet name="footer">#{msgs.qtdFuncionarios} 
