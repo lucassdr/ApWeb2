@@ -11,11 +11,19 @@
 <body>
 	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
 	<h:form>
-
-		<h:commandLink action="#{FuncionarioMB.abrirInclusao}" value="#{msgs.abrirInclusao}"></h:commandLink>
+		
+		<h:commandButton value="#{msgs.menuPrincipal}" action="#{FuncionarioMB.menuPrincipal}"></h:commandButton>
+		
+		<br/>
+		<br/>
+		
+		<h:commandButton action="#{FuncionarioMB.abrirInclusao}" value="#{msgs.buttonAbrirInclusao}"></h:commandButton>
+		<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
 		<br />
-
-
+		<f:facet name="header">
+			<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
+		</f:facet>
+		<br/>
 		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
