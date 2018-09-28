@@ -9,6 +9,8 @@
 <title>#{msgs.tituloFuncionarioEditar}</title>
 </head>
 <body>
+	<h:messages errorStyle="color: red" infoStyle="color: blue"
+		globalOnly="false" />
 
 	<h:form>
 		<h:panelGrid columns="2">
@@ -16,36 +18,36 @@
 			<h:outputText value="#{FuncionarioMB.funcionario.matricula}"></h:outputText>
 
 			<h:outputLabel value="#{msgs.textoNome} " />
-			<h:inputText id="nome" value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
+			<h:inputText id="nome" required="true" value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoSobrenome}" />
-			<h:inputText id="sobrenome"
+			<h:inputText id="sobrenome" required="true"
 				value="#{FuncionarioMB.funcionario.sobrenome}"></h:inputText>
 
 
 			<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
-			<h:inputText id="tipoSanguineo" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
+			<h:inputText id="tipoSanguineo" required="true" value="#{FuncionarioMB.funcionario.tipoSanguineo}"></h:inputText>
 
 
 			<h:outputLabel value="#{msgs.textoDataNascimento} "></h:outputLabel>
-			<h:inputText id="dataNascimento"
+			<h:inputText id="dataNascimento" required="true"
 				value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
 
 
 			<h:outputLabel value="#{msgs.textoSexo} " />
-			<h:selectOneRadio id="sexo" value="#{FuncionarioMB.funcionario.sexo}">
+			<h:selectOneRadio id="sexo" required="true" value="#{FuncionarioMB.funcionario.sexo}">
 				<f:selectItem itemValue="Masculino" itemLabel="#{msgs.textoSexoMasculino}" />
 				<f:selectItem itemValue="Feminino" itemLabel="#{msgs.textoSexoFeminino}" />
 			</h:selectOneRadio>
 
 			<h:outputLabel value="#{msgs.textoCpf} " />
-			<h:inputText id="cpf" value="#{FuncionarioMB.funcionario.cpf}"></h:inputText>
+			<h:inputText id="cpf" required="true" value="#{FuncionarioMB.funcionario.cpf}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoRegistroGeralRG} " />
-			<h:inputText id="rg" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
+			<h:inputText id="rg" required="true" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoSenha} " />
-			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
+			<h:inputSecret id="senha" required="true" value="#{FuncionarioMB.funcionario.senha}" />
 
 
 			<h:panelGroup>
