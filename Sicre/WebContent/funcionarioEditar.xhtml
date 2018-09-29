@@ -5,6 +5,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>#{msgs.tituloFuncionarioEditar}</title>
 </head>
@@ -12,13 +14,14 @@
 	<h:messages errorStyle="color: red" infoStyle="color: blue"
 		globalOnly="false" />
 
-	<h:form>
+	<h:form prependId="false">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="#{msgs.textoMatricula} " />
 			<h:outputText value="#{FuncionarioMB.funcionario.matricula}"></h:outputText>
 
 			<h:outputLabel value="#{msgs.textoNome} " />
-			<h:inputText id="nome" required="true" value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
+			<h:inputText id="nome" required="true"
+				value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoSobrenome}" />
 			<h:inputText id="sobrenome" required="true"
@@ -26,7 +29,8 @@
 
 			<h:panelGrid columns="2">
 				<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
-				<h:selectOneMenu id="tipoSanguineo" value="#{FuncionarioMB.funcionario.tipoSanguineo}">
+				<h:selectOneMenu id="tipoSanguineo"
+					value="#{FuncionarioMB.funcionario.tipoSanguineo}">
 					<f:selectItem itemValue="A+" itemLabel="A+"></f:selectItem>
 					<f:selectItem itemValue="A-" itemLabel="A-"></f:selectItem>
 					<f:selectItem itemValue="B+" itemLabel="B+"></f:selectItem>
@@ -38,27 +42,34 @@
 				</h:selectOneMenu>
 			</h:panelGrid>
 
-			<br/>
+			<br />
 			<h:outputLabel value="#{msgs.textoDataNascimento} "></h:outputLabel>
 			<h:inputText id="dataNascimento" required="true"
-				value="#{FuncionarioMB.funcionario.dataNascimento}"></h:inputText>
+				value="#{FuncionarioMB.funcionario.dataNascimento}">
+			</h:inputText>
 
 
 			<h:outputLabel value="#{msgs.textoSexo} " />
-			<h:selectOneRadio id="sexo" required="true" value="#{FuncionarioMB.funcionario.sexo}">
-				<f:selectItem itemValue="Masculino" itemLabel="#{msgs.textoSexoMasculino}" />
-				<f:selectItem itemValue="Feminino" itemLabel="#{msgs.textoSexoFeminino}" />
+			<h:selectOneRadio id="sexo" required="true"
+				value="#{FuncionarioMB.funcionario.sexo}">
+				<f:selectItem itemValue="Masculino"
+					itemLabel="#{msgs.textoSexoMasculino}" />
+				<f:selectItem itemValue="Feminino"
+					itemLabel="#{msgs.textoSexoFeminino}" />
 			</h:selectOneRadio>
 
 			<h:outputLabel value="#{msgs.textoCpf} " />
-			<h:inputText id="cpf" required="true" value="#{FuncionarioMB.funcionario.cpf}"></h:inputText>
+			<h:inputText id="cpf" required="true"
+				value="#{FuncionarioMB.funcionario.cpf}" maxlength="14" >
+			</h:inputText>
 
 			<h:outputLabel value="#{msgs.textoRegistroGeralRG} " />
-			<h:inputText id="rg" required="true" value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
+			<h:inputText id="rg" required="true"
+				value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.textoSenha} " />
 			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
-
+			
 
 			<h:panelGroup>
 				<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
@@ -71,3 +82,4 @@
 
 </body>
 </html>
+
