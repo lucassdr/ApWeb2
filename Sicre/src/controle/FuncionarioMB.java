@@ -64,7 +64,8 @@ public class FuncionarioMB {
 	public String acaoSalvar() {
 		String senhaTemporaria = funcionario.getSenha();
 		convertStringToMD5(funcionario.getSenha());
-		funcionario.setSenha(convertStringToMD5(senhaTemporaria));		
+		funcionario.setSenha(convertStringToMD5(senhaTemporaria));
+		//funcionario.setSenha(senhaTemporaria);
 		this.dao.salvar(this.funcionario);
 		return acaoListar();
 	}
