@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "tab_empresa")
 @SequenceGenerator(name = "EMPRESA_PK", sequenceName = "SEQ_EMPRESA_PK", allocationSize = 1, initialValue = 3000)
 public class Empresa {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPRESA_PK")
 	private Integer id;
