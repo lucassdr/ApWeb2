@@ -39,6 +39,8 @@ public class Funcionario {
 
 	@Column(name = "RG", length = 50, unique = true)
 	private String rg;
+	
+	//TODO Criar atributo Função. Sendo este com as seguintes propridades.
 
 	@Column(name = "SENHA", length = 50, nullable = false)
 	private String senha;
