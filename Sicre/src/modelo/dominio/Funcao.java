@@ -1,10 +1,14 @@
 package modelo.dominio;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,16 +30,20 @@ public class Funcao {
 	@Column(name = "SALARIO", nullable = false)
 	private Float salario;
 
+	@OneToMany(mappedBy = "funcao", fetch = FetchType.LAZY)
+	private List<Funcionario> funcionarios;
+
 	public Funcao() {
 		super();
 	}
 
-	public Funcao(Integer id, String funcao, String descricao, Float salario) {
+	public Funcao(Integer id, String funcao, String descricao, Float salario, List<Funcionario> funcionarios) {
 		super();
 		this.id = id;
 		this.funcao = funcao;
 		this.descricao = descricao;
 		this.salario = salario;
+		this.funcionarios = funcionarios;
 	}
 
 	public Integer getId() {
@@ -70,12 +78,21 @@ public class Funcao {
 		this.salario = salario;
 	}
 
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((funcao == null) ? 0 : funcao.hashCode());
+		result = prime * result + ((funcionarios == null) ? 0 : funcionarios.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((salario == null) ? 0 : salario.hashCode());
 		return result;
@@ -99,6 +116,11 @@ public class Funcao {
 			if (other.funcao != null)
 				return false;
 		} else if (!funcao.equals(other.funcao))
+			return false;
+		if (funcionarios == null) {
+			if (other.funcionarios != null)
+				return false;
+		} else if (!funcionarios.equals(other.funcionarios))
 			return false;
 		if (id == null) {
 			if (other.id != null)
