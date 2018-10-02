@@ -67,10 +67,10 @@
 				value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.salario}" />
-			<h:inputText id="salario" required="true" value=""></h:inputText>
+			<h:inputText id="salario" required="true" value="#{FuncionarioMB.funcionario.funcao.salario}"></h:inputText>
 
 			<h:outputLabel value="#{msgs.funcao}" />
-			<h:inputText id="funcao" required="true" value=""></h:inputText>
+			<h:inputText id="funcao" required="true" value="#{FuncionarioMB.funcionario.funcao.funcao}"></h:inputText>
 
 
 			<h:outputLabel value="#{msgs.empresa}"></h:outputLabel>
