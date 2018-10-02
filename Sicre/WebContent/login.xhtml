@@ -13,13 +13,15 @@
 	<h:messages errorStyle="color: red" infoStyle="color: blue" />
 	<h:form>
 		<h:outputLabel for="login" value="#{msgs.campoNomeUsuario}" />
-		<h:inputText id="login" value="#{loginMB.login}" required="true"></h:inputText> <br/>
-		
+		<h:inputText id="login" value="#{loginMB.login}" required="true"></h:inputText>
+		<br />
+
 		<h:outputLabel for="senha" value="#{msgs.campoSenha}" />
-		<h:inputSecret id="senha" value="#{loginMB.senha}" required="true"></h:inputSecret>	 <br/>
-		
-		<h:commandButton id="enviar" action="#{loginMB.acaoAutenticar}" 
-					value="#{msgs.botaoLogin}"></h:commandButton>
+		<h:inputSecret id="senha" value="#{loginMB.senha}" required="true"></h:inputSecret>
+		<br />
+
+		<h:commandButton id="enviar" action="#{loginMB.acaoAutenticar}"
+			value="#{msgs.botaoLogin}"></h:commandButton>
 	</h:form>
 </body>
 </html>

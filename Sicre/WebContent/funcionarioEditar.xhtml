@@ -48,7 +48,6 @@
 				value="#{FuncionarioMB.funcionario.dataNascimento}">
 			</h:inputText>
 
-
 			<h:outputLabel value="#{msgs.textoSexo} " />
 			<h:selectOneRadio id="sexo" required="true"
 				value="#{FuncionarioMB.funcionario.sexo}">
@@ -60,39 +59,42 @@
 
 			<h:outputLabel value="#{msgs.textoCpf} " />
 			<h:inputText id="cpf" required="true"
-				value="#{FuncionarioMB.funcionario.cpf}" maxlength="14" >
+				value="#{FuncionarioMB.funcionario.cpf}" maxlength="14">
 			</h:inputText>
 
 			<h:outputLabel value="#{msgs.textoRegistroGeralRG} " />
 			<h:inputText id="rg" required="true"
 				value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
-				
+
 			<h:outputLabel value="#{msgs.salario}" />
 			<h:inputText id="salario" required="true" value=""></h:inputText>
-			
+
 			<h:outputLabel value="#{msgs.funcao}" />
 			<h:inputText id="funcao" required="true" value=""></h:inputText>
-				
-			
+
+
 			<h:outputLabel value="#{msgs.empresa}"></h:outputLabel>
-			<h:inputText id="empresa" required="true" value="#{EmpresaMB.empresa.nomeFantasia}"></h:inputText>
-			
-			
+			<h:inputText id="empresa" required="true"
+				value="#{EmpresaMB.empresa.nomeFantasia}"></h:inputText>
+
+
 			<h:outputLabel value="#{msgs.textoSenha} " />
 			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
-		
-			
-			<br/><br/><br/>
+
+
+			<br />
+			<br />
+			<br />
 			<h:panelGroup>
 				<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
 					value="#{msgs.botaoSalvar}"></h:commandButton>
 				<h:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
 					value="#{msgs.botaoCancelar}" immediate="true"></h:commandButton>
 			</h:panelGroup>
-			
-			<br/>
-			<br/>
-			
+
+			<br />
+			<br />
+
 		</h:panelGrid>
 	</h:form>
 
