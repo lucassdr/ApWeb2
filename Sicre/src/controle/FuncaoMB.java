@@ -6,31 +6,38 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import modelo.dao.FuncaoDAO;
-import modelo.dominio.Funcionario;
+import modelo.dominio.Funcao;
 
 @ManagedBean(name = "FuncaoMB")
 @SessionScoped
 public class FuncaoMB {
 
 	private FuncaoDAO dao = new FuncaoDAO();
-	private Funcionario funcionario = new Funcionario();
+	private Funcao funcao = new Funcao();
 
-	private List<Funcionario> funcionarios = null;
+	private List<Funcao> funcoes = null;
 
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public void setDao(FuncaoDAO dao) {
+		this.dao = dao;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public Funcao getFuncao() {
+		return funcao;
 	}
 
-	public List<Funcionario> getFuncionarios() {
-		return funcionarios;
+	public void setFuncao(Funcao funcao) {
+		this.funcao = funcao;
 	}
 
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
+	public List<Funcao> getFuncoes() {
+		if (this.funcoes == null)
+			this.funcoes = this.dao.lerTodos();
+
+		return funcoes;
+	}
+
+	public void setFuncoes(List<Funcao> funcoes) {
+		this.funcoes = funcoes;
 	}
 
 }
