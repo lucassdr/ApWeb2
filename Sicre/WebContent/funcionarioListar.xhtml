@@ -87,6 +87,21 @@
 				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
 			</h:column>
+			
+			<h:column>
+				<f:facet name="header">#{msgs.salario}</f:facet>
+				<h:outputText value=""></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">#{msgs.funcao}</f:facet>
+				<h:outputText value=""></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">#{msgs.empresa}</f:facet>
+				<h:outputText value="#{func.empresa.nomeFantasia}"></h:outputText>
+			</h:column>
 
 		</h:dataTable>
 
