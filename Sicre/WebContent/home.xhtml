@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-	
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>#{msgs.tituloHome}</title>
@@ -13,10 +13,11 @@
 	<h:form>
 		<h:panelGrid columns="1">
 			<h:commandButton value="#{msgs.sair}" action="#{loginMB.acaoSair}"></h:commandButton>
-			<br/>
-			<br/>
-			<h:outputText value="#{msgs.textoBemVindo} #{loginMB.nome}"/>
-			<h:commandButton value="#{msgs.botaoCadastroFuncionario}" action="#{FuncionarioMB.acaoListar}"></h:commandButton>
+			<br />
+			<br />
+			<h:outputText value="#{msgs.textoBemVindo} #{loginMB.nome}" />
+			<h:commandButton value="#{msgs.botaoCadastroFuncionario}"
+				action="#{FuncionarioMB.acaoListar}"></h:commandButton>
 		</h:panelGrid>
 	</h:form>
 </body>

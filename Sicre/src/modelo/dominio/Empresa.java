@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "tab_empresa")
 @SequenceGenerator(name = "EMPRESA_PK", sequenceName = "SEQ_EMPRESA_PK", allocationSize = 1, initialValue = 3000)
 public class Empresa {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPRESA_PK")
 	private Integer id;
@@ -30,19 +30,20 @@ public class Empresa {
 	@Column(name = "NOME_FANTASIA", nullable = true)
 	private String nomeFantasia;
 
-	@OneToMany(mappedBy="empresa",fetch=FetchType.LAZY)
-	private List<Funcionario> funcionario;
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)
+	private List<Funcionario> funcionarios;
 
 	public Empresa() {
 		super();
 	}
 
-	public Empresa(Integer id, String cnpj, String razaoSocial, String nomeFantasia) {
+	public Empresa(Integer id, String cnpj, String razaoSocial, String nomeFantasia, List<Funcionario> funcionarios) {
 		super();
 		this.id = id;
 		this.cnpj = cnpj;
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
+		this.funcionarios = funcionarios;
 	}
 
 	public Integer getId() {
@@ -77,12 +78,12 @@ public class Empresa {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public List<Funcionario> getFuncionario() {
-		return funcionario;
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setFuncionario(List<Funcionario> funcionario) {
-		this.funcionario = funcionario;
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
@@ -90,7 +91,7 @@ public class Empresa {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
-		result = prime * result + ((funcionario == null) ? 0 : funcionario.hashCode());
+		result = prime * result + ((funcionarios == null) ? 0 : funcionarios.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nomeFantasia == null) ? 0 : nomeFantasia.hashCode());
 		result = prime * result + ((razaoSocial == null) ? 0 : razaoSocial.hashCode());
@@ -111,10 +112,10 @@ public class Empresa {
 				return false;
 		} else if (!cnpj.equals(other.cnpj))
 			return false;
-		if (funcionario == null) {
-			if (other.funcionario != null)
+		if (funcionarios == null) {
+			if (other.funcionarios != null)
 				return false;
-		} else if (!funcionario.equals(other.funcionario))
+		} else if (!funcionarios.equals(other.funcionarios))
 			return false;
 		if (id == null) {
 			if (other.id != null)

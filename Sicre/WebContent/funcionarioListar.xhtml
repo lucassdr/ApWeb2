@@ -31,7 +31,7 @@
 
 		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
-			border="1" cellspacing="0" cellpadding="3" >
+			border="1" cellspacing="0" cellpadding="3">
 
 			<f:facet name="header">#{msgs.listaDeFuncionarios}</f:facet>
 			<f:facet name="footer">#{msgs.qtdFuncionarios} 
@@ -87,17 +87,17 @@
 				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">#{msgs.salario}</f:facet>
-				<h:outputText value=""></h:outputText>
+				<h:outputText value="#{func.funcao.salario}"></h:outputText>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">#{msgs.funcao}</f:facet>
-				<h:outputText value=""></h:outputText>
+				<h:outputText value="#{func.funcao.funcao}"></h:outputText>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">#{msgs.empresa}</f:facet>
 				<h:outputText value="#{func.empresa.nomeFantasia}"></h:outputText>
