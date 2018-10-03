@@ -20,12 +20,11 @@
 
 		<h:commandButton action="#{FuncionarioMB.abrirInclusao}"
 			value="#{msgs.buttonAbrirInclusao}"></h:commandButton>
-		<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
+		
 		<br />
-		<f:facet name="header">
-			<h:outputLabel value="#{msgs.textoListaFuncionarios}" />
-		</f:facet>
 		<br />
+		
+		
 		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
@@ -33,7 +32,9 @@
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
 			border="1" cellspacing="0" cellpadding="3">
 
-			<f:facet name="header">#{msgs.listaDeFuncionarios}</f:facet>
+			<f:facet name="header">
+				<h:outputText value="#{msgs.textoListaFuncionariosListar}" />
+			</f:facet>
 			<f:facet name="footer">#{msgs.qtdFuncionarios} 
 				<b><h:outputText value="#{FuncionarioMB.funcionarios.size()}"></h:outputText></b>
 			</f:facet>
@@ -86,21 +87,6 @@
 			<h:column>
 				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">#{msgs.salario}</f:facet>
-				<h:outputText value="#{func.funcao.salario}"></h:outputText>
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">#{msgs.funcao}</f:facet>
-				<h:outputText value="#{func.funcao.funcao}"></h:outputText>
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">#{msgs.empresa}</f:facet>
-				<h:outputText value="#{func.empresa.nomeFantasia}"></h:outputText>
 			</h:column>
 
 		</h:dataTable>
