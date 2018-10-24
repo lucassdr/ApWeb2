@@ -6,7 +6,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import componentes.CaminhoURL;
+import modelo.dao.EmpresaDAO;
 import modelo.dao.FuncionarioDAO;
+import modelo.dominio.Empresa;
 import modelo.dominio.Funcionario;
 
 @ManagedBean(name = "FuncionarioMB")
@@ -18,6 +20,7 @@ public class FuncionarioMB {
 	private Funcionario funcionario = new Funcionario();
 
 	private List<Funcionario> funcionarios = null;
+	private List<Empresa> empresas = null;
 
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -37,6 +40,19 @@ public class FuncionarioMB {
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
+	}
+
+	public List<Empresa> getEmpresas() {
+		if (this.empresas == null) {
+			EmpresaDAO empDAO = new EmpresaDAO();
+			this.empresas = empDAO.lerTodos();
+		}
+		
+		return empresas;
+	}
+
+	public void setEmpresas(List<Empresa> empresas) {
+		this.empresas = empresas;
 	}
 
 	// Métodos

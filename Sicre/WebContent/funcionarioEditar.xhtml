@@ -68,6 +68,18 @@
 			<p:inputText id="rg" required="true"
 				value="#{FuncionarioMB.funcionario.rg}"></p:inputText>
 
+			<p:outputLabel for="empresa" value="Empresa" />
+			<p:selectOneMenu id="empresa" value="#{FuncionarioMB.funcionario.empresa}" >
+				<f:selectItem itemLabel="Selecione..." itemValue="" />
+				<f:selectItems value="#{FuncionarioMB.empresas}" var="emp" itemLabel="#{emp.nomeFantasia}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="categoria" value="#{msgs.campoCategoria}: " />
+			<p:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria}" required="true">
+				<f:selectItem itemLabel="Selecione..." itemValue="" />
+				<f:selectItems value="#{produtoMB.categorias}" var="cat"  itemLabel="#{cat.nome}" />
+			</p:selectOneMenu>
+
 			<p:outputLabel value="#{msgs.textoSenha} " />
 			<p:password id="senha" value="#{FuncionarioMB.funcionario.senha}" />
 
