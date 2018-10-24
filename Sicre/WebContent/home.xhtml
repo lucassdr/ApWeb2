@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>#{msgs.tituloHome}</title>
-</head>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#{msgs.tituloHome}</title>
+</h:head>
 <body>
 	<h:form>
-		<h:panelGrid columns="1">
-			<h:commandButton value="#{msgs.sair}" action="#{loginMB.acaoSair}"></h:commandButton>
-			<br />
-			<br />
-			<h:commandButton value="#{msgs.botaoCadastroFuncionario}"
-				action="#{FuncionarioMB.acaoListar}"></h:commandButton>
+		<h:panelGrid columns="2">
+			<p:commandButton value="#{msgs.sair}" action="#{loginMB.acaoSair}"></p:commandButton>
+			<p:commandButton value="#{msgs.botaoCadastroFuncionario}"
+				action="#{FuncionarioMB.acaoListar}"></p:commandButton>
 		</h:panelGrid>
 	</h:form>
 </body>

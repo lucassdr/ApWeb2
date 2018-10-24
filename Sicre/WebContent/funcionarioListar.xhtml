@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>#{msgs.tituloFuncionarioListar}</title>
-</head>
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#{msgs.tituloFuncionarioListar}</title>
+</h:head>
 <body>
-	<h:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
+	<p:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
 	<h:form>
 
-		<h:commandButton value="#{msgs.menuPrincipal}"
-			action="#{FuncionarioMB.menuPrincipal}"></h:commandButton>
+		<p:commandButton value="#{msgs.menuPrincipal}"
+			action="#{FuncionarioMB.menuPrincipal}"></p:commandButton>
 
-		<br />
-		<br />
-
-		<h:commandButton action="#{FuncionarioMB.abrirInclusao}"
-			value="#{msgs.buttonAbrirInclusao}"></h:commandButton>
+		<p:commandButton action="#{FuncionarioMB.abrirInclusao}"
+			value="#{msgs.buttonAbrirInclusao}"></p:commandButton>
 		
 		<br />
 		<br />
@@ -28,7 +26,7 @@
 		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
-		<h:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
+		<p:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
 			border="1" cellspacing="0" cellpadding="3">
 
@@ -39,57 +37,57 @@
 				<b><h:outputText value="#{FuncionarioMB.funcionarios.size()}"></h:outputText></b>
 			</f:facet>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoOpcoes}</f:facet>
-				<h:commandLink
-					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">#{msgs.textoEditar}</h:commandLink>
+				<p:commandLink
+					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">#{msgs.textoEditar}</p:commandLink>
 				--
-				<h:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">#{msgs.textoExcluir}</h:commandLink>
-			</h:column>
+				<p:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">#{msgs.textoExcluir}</p:commandLink>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoMatricula} </f:facet>
 				<h:outputText value="#{func.matricula}"></h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoNome} </f:facet>
 				<h:outputText value="#{func.nome}"></h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoSobrenome} </f:facet>
 				<h:outputText value="#{func.sobrenome}"></h:outputText>
-			</h:column>
+			</p:column>
 
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoTipoSanguineo} </f:facet>
 				<h:outputText value="#{func.tipoSanguineo}"></h:outputText>
-			</h:column>
+			</p:column>
 
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoDataNascimento} </f:facet>
 				<h:outputText value="#{func.dataNascimento}"></h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoSexo} </f:facet>
 				<h:outputText value="#{func.sexo}"></h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoCpf} </f:facet>
 				<h:outputText value="#{func.cpf}"></h:outputText>
-			</h:column>
+			</p:column>
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
-			</h:column>
+			</p:column>
 
-		</h:dataTable>
+		</p:dataTable>
 
 	</h:form>
 </body>

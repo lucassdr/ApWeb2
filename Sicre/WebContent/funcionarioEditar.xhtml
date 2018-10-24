@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+	xmlns:f="http://java.sun.com/jsf/core">
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>#{msgs.tituloFuncionarioEditar}</title>
-</head>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#{msgs.tituloFuncionarioEditar}</title>
+</h:head>
 <body>
-	<h:messages errorStyle="color: red" infoStyle="color: blue"
+	<p:messages errorStyle="color: red" infoStyle="color: blue"
 		globalOnly="false" />
 
 	<h:form prependId="false">
-		<h:panelGrid columns="2">
-			<h:outputLabel value="#{msgs.textoMatricula} " />
-			<h:outputText value="#{FuncionarioMB.funcionario.matricula}"></h:outputText>
+		<p:panelGrid columns="2">
+			<p:outputLabel value="#{msgs.textoMatricula} " />
+			<p:outputLabel value="#{FuncionarioMB.funcionario.matricula}"></p:outputLabel>
 
-			<h:outputLabel value="#{msgs.textoNome} " />
-			<h:inputText id="nome" required="true"
-				value="#{FuncionarioMB.funcionario.nome}"></h:inputText>
+			<p:outputLabel value="#{msgs.textoNome} " />
+			<p:inputText id="nome" required="true"
+				value="#{FuncionarioMB.funcionario.nome}"></p:inputText>
 
-			<h:outputLabel value="#{msgs.textoSobrenome}" />
-			<h:inputText id="sobrenome" required="true"
-				value="#{FuncionarioMB.funcionario.sobrenome}"></h:inputText>
+			<p:outputLabel value="#{msgs.textoSobrenome}" />
+			<p:inputText id="sobrenome" required="true"
+				value="#{FuncionarioMB.funcionario.sobrenome}"></p:inputText>
 
-			<h:panelGrid columns="2">
-				<h:outputLabel value="#{msgs.textoTipoSanguineo} " />
-				<h:selectOneMenu id="tipoSanguineo"
+			<p:panelGrid columns="2">
+				<p:outputLabel value="#{msgs.textoTipoSanguineo} " />
+				<p:selectOneMenu id="tipoSanguineo"
 					value="#{FuncionarioMB.funcionario.tipoSanguineo}">
+					<f:selectItem itemValue="" itemLabel="#{msgs.selecione}"
+						itemDisabled="false"></f:selectItem>
 					<f:selectItem itemValue="A+" itemLabel="A+"></f:selectItem>
 					<f:selectItem itemValue="A-" itemLabel="A-"></f:selectItem>
 					<f:selectItem itemValue="B+" itemLabel="B+"></f:selectItem>
@@ -39,51 +41,51 @@
 					<f:selectItem itemValue="AB-" itemLabel="B-"></f:selectItem>
 					<f:selectItem itemValue="O+" itemLabel="O+"></f:selectItem>
 					<f:selectItem itemValue="O-" itemLabel="O-"></f:selectItem>
-				</h:selectOneMenu>
-			</h:panelGrid>
+				</p:selectOneMenu>
+			</p:panelGrid>
 
 			<br />
-			<h:outputLabel value="#{msgs.textoDataNascimento} "></h:outputLabel>
-			<h:inputText id="dataNascimento" required="true"
+			<p:outputLabel value="#{msgs.textoDataNascimento} "></p:outputLabel>
+			<p:inputText id="dataNascimento" required="true"
 				value="#{FuncionarioMB.funcionario.dataNascimento}">
-			</h:inputText>
+			</p:inputText>
 
-			<h:outputLabel value="#{msgs.textoSexo} " />
-			<h:selectOneRadio id="sexo" required="true"
+			<p:outputLabel value="#{msgs.textoSexo} " />
+			<p:selectOneRadio id="sexo" required="true"
 				value="#{FuncionarioMB.funcionario.sexo}">
 				<f:selectItem itemValue="Masculino"
 					itemLabel="#{msgs.textoSexoMasculino}" />
 				<f:selectItem itemValue="Feminino"
 					itemLabel="#{msgs.textoSexoFeminino}" />
-			</h:selectOneRadio>
+			</p:selectOneRadio>
 
-			<h:outputLabel value="#{msgs.textoCpf} " />
-			<h:inputText id="cpf" required="true"
+			<p:outputLabel value="#{msgs.textoCpf} " />
+			<p:inputText id="cpf" required="true"
 				value="#{FuncionarioMB.funcionario.cpf}" maxlength="14">
-			</h:inputText>
+			</p:inputText>
 
-			<h:outputLabel value="#{msgs.textoRegistroGeralRG} " />
-			<h:inputText id="rg" required="true"
-				value="#{FuncionarioMB.funcionario.rg}"></h:inputText>
+			<p:outputLabel value="#{msgs.textoRegistroGeralRG} " />
+			<p:inputText id="rg" required="true"
+				value="#{FuncionarioMB.funcionario.rg}"></p:inputText>
 
-			<h:outputLabel value="#{msgs.textoSenha} " />
-			<h:inputSecret id="senha" value="#{FuncionarioMB.funcionario.senha}" />
+			<p:outputLabel value="#{msgs.textoSenha} " />
+			<p:password id="senha" value="#{FuncionarioMB.funcionario.senha}" />
 
 
 			<br />
 			<br />
 			<br />
 			<h:panelGroup>
-				<h:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
-					value="#{msgs.botaoSalvar}"></h:commandButton>
-				<h:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
-					value="#{msgs.botaoCancelar}" immediate="true"></h:commandButton>
+				<p:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
+					value="#{msgs.botaoSalvar}"></p:commandButton>
+				<p:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
+					value="#{msgs.botaoCancelar}" immediate="true"></p:commandButton>
 			</h:panelGroup>
 
 			<br />
 			<br />
 
-		</h:panelGrid>
+		</p:panelGrid>
 	</h:form>
 
 </body>
