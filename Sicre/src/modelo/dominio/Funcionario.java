@@ -39,12 +39,10 @@ public class Funcionario {
 
 	@Column(name = "RG", length = 50, unique = true)
 	private String rg;
-	
-	//TODO Criar atributo Função. Sendo este com as seguintes propridades.
 
 	@Column(name = "SENHA", length = 50, nullable = false)
 	private String senha;
-	
+
 	public boolean senhaCorreta(String senhaDigitada) {
 		if (this.senha.equals(senhaDigitada)) {
 			return true;
@@ -53,9 +51,6 @@ public class Funcionario {
 		}
 
 	}
-
-	// @Column(name = "MATRICULA", length = 20, unique = true, nullable = false,)
-	// private String matricula;
 
 	@ManyToOne
 	@JoinColumn(name = "id_empresa_fk")
@@ -160,30 +155,4 @@ public class Funcionario {
 		this.empresa = empresa;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Funcionario other = (Funcionario) obj;
-		if (matricula == null) {
-			if (other.matricula != null)
-				return false;
-		} else if (!matricula.equals(other.matricula))
-			return false;
-		return true;
-	}
-
-	
 }
