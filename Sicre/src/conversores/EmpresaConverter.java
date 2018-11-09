@@ -3,10 +3,12 @@ package conversores;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
 import modelo.dao.EmpresaDAO;
 import modelo.dominio.Empresa;
 
+@FacesConverter(forClass=Empresa.class)
 public class EmpresaConverter implements Converter {
 
 	@Override

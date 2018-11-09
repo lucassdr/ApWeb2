@@ -74,6 +74,7 @@ public class FuncionarioMB {
 
 	public String acaoSalvar() {
 		// funcionario.setSenha(senhaTemporaria);
+		
 		this.dao.salvar(this.funcionario);
 		return acaoListar();
 	}

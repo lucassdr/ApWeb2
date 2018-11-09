@@ -6,23 +6,23 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>#{msgs.tituloLogin}</title>
-</h:head>
-<body>
-	<p:messages errorStyle="color: red" infoStyle="color: blue" />
-	<h:form>
+<ui:composition template="modelo.xhtml">
+	<ui:define name="titulo">#{msgs.tituloLogin}</ui:define>
+
+	<ui:define name="conteudo">
+
 		<p:outputLabel for="login" value="#{msgs.campoNomeUsuario}" />
-		<p:inputText id="login" value="#{loginMB.login}" required="true"></p:inputText>
+		<p:inputText id="login" value="#{loginMB.login}" required="true" />
 		<br />
 
 		<p:outputLabel for="senha" value="#{msgs.campoSenha}" />
-		<p:password id="senha" value="#{loginMB.senha}" required="true"></p:password>
+		<p:password id="senha" value="#{loginMB.senha}" required="true" />
 		<br />
-
-		<p:commandButton id="enviar" action="#{loginMB.acaoAutenticar}"
+		
+		
+		<p:commandButton ajax="false" action="#{loginMB.acaoAutenticar}"
 			value="#{msgs.botaoLogin}"></p:commandButton>
-	</h:form>
-</body>
+
+	</ui:define>
+</ui:composition>
 </html>

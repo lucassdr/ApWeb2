@@ -6,98 +6,82 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>#{msgs.tituloFuncionarioEditar}</title>
-</h:head>
-<body>
-	<p:messages errorStyle="color: red" infoStyle="color: blue"
-		globalOnly="false" />
+<ui:composition template="modelo.xhtml">
+	<ui:define name="titulo">#{msgs.tituloFuncionarioEditar}</ui:define>
 
-	<h:form prependId="false">
+	<ui:define name="conteudo">
+		<h:inputHidden id="matricula" value="#{FuncionarioMB.funcionario.matricula}" />
+		
+
 		<p:panelGrid columns="2">
-			<p:outputLabel value="#{msgs.textoMatricula} " />
-			<p:outputLabel value="#{FuncionarioMB.funcionario.matricula}"></p:outputLabel>
+			<p:outputLabel value="#{msgs.textoMatricula}" />
+			<h:outputText value="#{FuncionarioMB.funcionario.matricula}" />
 
-			<p:outputLabel value="#{msgs.textoNome} " />
-			<p:inputText id="nome" required="true"
-				value="#{FuncionarioMB.funcionario.nome}"></p:inputText>
+			<p:outputLabel for="nome" value="#{msgs.textoNome}" />
+			<p:inputText id="nome" value="#{FuncionarioMB.funcionario.nome}" required="true" />
 
-			<p:outputLabel value="#{msgs.textoSobrenome}" />
-			<p:inputText id="sobrenome" required="true"
-				value="#{FuncionarioMB.funcionario.sobrenome}"></p:inputText>
+			<p:outputLabel for="sobrenome" value="#{msgs.textoSobrenome}" />
+			<p:inputText id="sobrenome" value="#{FuncionarioMB.funcionario.sobrenome}" required="true">	
+			</p:inputText>
 
-			<p:panelGrid columns="2">
-				<p:outputLabel value="#{msgs.textoTipoSanguineo} " />
+			
+				<p:outputLabel for="tipoSanguineo" value="#{msgs.textoTipoSanguineo} " />
 				<p:selectOneMenu id="tipoSanguineo"
-					value="#{FuncionarioMB.funcionario.tipoSanguineo}">
-					<f:selectItem itemValue="" itemLabel="#{msgs.selecione}"
-						itemDisabled="false"></f:selectItem>
-					<f:selectItem itemValue="A+" itemLabel="A+"></f:selectItem>
-					<f:selectItem itemValue="A-" itemLabel="A-"></f:selectItem>
-					<f:selectItem itemValue="B+" itemLabel="B+"></f:selectItem>
-					<f:selectItem itemValue="B-" itemLabel="B-"></f:selectItem>
-					<f:selectItem itemValue="AB+" itemLabel="AB+"></f:selectItem>
-					<f:selectItem itemValue="AB-" itemLabel="B-"></f:selectItem>
-					<f:selectItem itemValue="O+" itemLabel="O+"></f:selectItem>
-					<f:selectItem itemValue="O-" itemLabel="O-"></f:selectItem>
+					value="#{FuncionarioMB.funcionario.tipoSanguineo}" required="true">
+					<f:selectItem itemValue="" itemLabel="#{msgs.selecione}" />
+					<f:selectItem itemValue="A+" itemLabel="A+" />
+					<f:selectItem itemValue="A-" itemLabel="A-" />
+					<f:selectItem itemValue="B+" itemLabel="B+" />
+					<f:selectItem itemValue="B-" itemLabel="B-" />
+					<f:selectItem itemValue="AB+" itemLabel="AB+" />
+					<f:selectItem itemValue="AB-" itemLabel="B-" />
+					<f:selectItem itemValue="O+" itemLabel="O+" />
+					<f:selectItem itemValue="O-" itemLabel="O-" />
 				</p:selectOneMenu>
-			</p:panelGrid>
-
-			<br />
-			<p:outputLabel value="#{msgs.textoDataNascimento} "></p:outputLabel>
-			<p:inputMask mask="99/99/9999" id="dataNascimento" required="true"
-				value="#{FuncionarioMB.funcionario.dataNascimento}">
+			
+			
+			<p:outputLabel for="dataNascimento" value="#{msgs.textoDataNascimento}" />
+			<p:inputMask mask="99/99/9999" id="dataNascimento" value="#{FuncionarioMB.funcionario.dataNascimento}" required="true">
 			</p:inputMask>
 
-			<p:outputLabel value="#{msgs.textoSexo} " />
-			<p:selectOneRadio id="sexo" required="true"
-				value="#{FuncionarioMB.funcionario.sexo}">
+			<p:outputLabel for="sexo" value="#{msgs.textoSexo} " />
+			<p:selectOneRadio id="sexo" value="#{FuncionarioMB.funcionario.sexo}" required="true">
 				<f:selectItem itemValue="Masculino"
 					itemLabel="#{msgs.textoSexoMasculino}" />
 				<f:selectItem itemValue="Feminino"
 					itemLabel="#{msgs.textoSexoFeminino}" />
 			</p:selectOneRadio>
 
-			<p:outputLabel value="#{msgs.textoCpf} " />
-			<p:inputMask mask="999.999.999-99" id="cpf" required="true"
-				value="#{FuncionarioMB.funcionario.cpf}" maxlength="14">
-			</p:inputMask>
+			<p:outputLabel for="cpf" value="#{msgs.textoCpf}" />
+			<p:inputMask mask="999.999.999-99" id="cpf" value="#{FuncionarioMB.funcionario.cpf}" maxlength="14" required="true" />
 
 			<p:outputLabel value="#{msgs.textoRegistroGeralRG} " />
-			<p:inputText id="rg" required="true"
-				value="#{FuncionarioMB.funcionario.rg}"></p:inputText>
+			<p:inputText id="rg" value="#{FuncionarioMB.funcionario.rg}" required="true" />
 
-			<p:outputLabel for="empresa" value="Empresa" />
-			<p:selectOneMenu id="empresa" value="#{FuncionarioMB.funcionario.empresa}" >
-				<f:selectItem itemLabel="Selecione..." itemValue="" />
-				<f:selectItems value="#{FuncionarioMB.empresas}" var="emp" itemLabel="#{emp.nomeFantasia}" />
-			</p:selectOneMenu>
-			
-			<p:outputLabel for="categoria" value="#{msgs.campoCategoria}: " />
-			<p:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria}" required="true">
-				<f:selectItem itemLabel="Selecione..." itemValue="" />
-				<f:selectItems value="#{produtoMB.categorias}" var="cat"  itemLabel="#{cat.nome}" />
+			<p:outputLabel for="empresa" value="#{msgs.empresa}" />
+			<p:selectOneMenu id="empresa"
+				value="#{FuncionarioMB.funcionario.empresa}" required="true">
+				<f:selectItem itemLabel="#{msgs.selecione}" itemValue="" />
+				<f:selectItems value="#{FuncionarioMB.empresas}" var="emp"
+					itemLabel="#{emp.nomeFantasia}" />
 			</p:selectOneMenu>
 
 			<p:outputLabel value="#{msgs.textoSenha} " />
 			<p:password id="senha" value="#{FuncionarioMB.funcionario.senha}" />
 
-			<br />
-
+			<h:outputText value=""/>
 			<h:panelGroup>
-				<p:commandButton id="salvar" action="#{FuncionarioMB.acaoSalvar}"
+				<p:commandButton id="salvar" ajax="false" action="#{FuncionarioMB.acaoSalvar}"
 					value="#{msgs.botaoSalvar}"></p:commandButton>
 				<p:commandButton id="cancelar" action="#{FuncionarioMB.acaoListar}"
 					value="#{msgs.botaoCancelar}" immediate="true"></p:commandButton>
 			</h:panelGroup>
-
-			<br />
-			<br />
-
+		
 		</p:panelGrid>
-	</h:form>
 
-</body>
+	</ui:define>
+
+</ui:composition>
+
 </html>
 
