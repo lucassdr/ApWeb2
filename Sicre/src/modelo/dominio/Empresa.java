@@ -86,6 +86,9 @@ public class Empresa {
 		this.funcionarios = funcionarios;
 	}
 
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -133,6 +136,11 @@ public class Empresa {
 		} else if (!razaoSocial.equals(other.razaoSocial))
 			return false;
 		return true;
+	}
+
+	
+	public String toString(){
+		return id + "";
 	}
 
 }

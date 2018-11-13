@@ -16,17 +16,26 @@ public class EmpresaConverter implements Converter {
 
 		Integer id = null;
 		try {
+			
+			System.out.println("ID 1" + id); /* null */
+			System.out.println("value 1 " + value); /* 3 */
 			id = Integer.parseInt(value);
+			System.out.println("id 2 " + id); /* 3 */
 		} catch (NumberFormatException e) {
 			id = null;
+			System.out.println("id catch " + id);
 		}
 
 		if (id != null) {
 			EmpresaDAO dao = new EmpresaDAO();
+			System.out.println("if id " + id); /* 3 */
+			
 
-			Empresa emp = dao.lerPorId(id);
-			return emp;
+			Empresa empresa = dao.lerPorId(id);
+			System.out.println(dao.lerPorId(id)); /* 3 */
+			return empresa;
 		}
+	
 
 		return null;
 	}
@@ -35,10 +44,9 @@ public class EmpresaConverter implements Converter {
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 
 		if (value instanceof Empresa) {
-
-			Empresa emp = (Empresa) value;
-
-			return emp.toString();
+			Empresa empresa = (Empresa) value;
+			System.out.println("VALUE >> " + value);
+			return empresa.toString();
 		}
 
 		return null;

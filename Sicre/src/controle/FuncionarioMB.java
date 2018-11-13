@@ -1,5 +1,6 @@
 package controle;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -13,7 +14,9 @@ import modelo.dominio.Funcionario;
 
 @ManagedBean(name = "FuncionarioMB")
 @SessionScoped
-public class FuncionarioMB {
+public class FuncionarioMB implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	// Atributos
 	private FuncionarioDAO dao = new FuncionarioDAO();

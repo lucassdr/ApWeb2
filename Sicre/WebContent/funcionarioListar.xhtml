@@ -11,6 +11,16 @@
 </h:head>
 <body>
 	<p:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
+	
+	
+	<p:confirmDialog global="true" showEffect="bounce"
+			hideEffect="explode">
+			<p:commandButton value="Sim" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+	
 	<h:form>
 
 		<p:commandButton value="#{msgs.menuPrincipal}"
@@ -25,7 +35,7 @@
 
 		<p:dataTable id="tabela" value="#{FuncionarioMB.funcionarios}"
 			rendered="#{not empty FuncionarioMB.funcionarios}" var="func"
-			border="1" cellspacing="0" cellpadding="3">
+			border="1" cellspacing="0" cellpadding="3" paginator="true" rows="10">
 
 			<f:facet name="header">
 				<h:outputText value="#{msgs.textoListaFuncionariosListar}" />
@@ -37,8 +47,11 @@
 			<p:column>
 				<f:facet name="header">#{msgs.textoOpcoes}</f:facet>
 				<p:commandLink
-					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}">#{msgs.textoEditar}</p:commandLink>
-				<p:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}">#{msgs.textoExcluir}</p:commandLink>
+					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}" value="#{msgs.textoEditar}" >
+				</p:commandLink>
+				<p:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}" value="#{msgs.textoExcluir}">
+					<p:confirm message="Deseja remover o funcionário #{FuncionarioMB.funcionario.nome} de matrícula #{func.matricula}?"  header="Confirmação" />
+				</p:commandLink>
 			</p:column>
 
 			<p:column>
@@ -89,6 +102,7 @@
 			</p:column>
 
 		</p:dataTable>
+		
 
 	</h:form>
 </body>
