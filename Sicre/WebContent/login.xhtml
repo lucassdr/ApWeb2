@@ -13,11 +13,12 @@
 
 	<h:form>
 		<p:outputLabel for="login" value="#{msgs.campoNomeUsuario}" />
-		<p:inputText id="login" value="#{loginMB.login}" required="true" />
+		
+		<p:inputMask id="login" value="#{loginMB.login}" mask="999.999.999-99" maxlength="14" required="true" autoClear="true" autocomplete="false" />
 		<br />
 
 		<p:outputLabel for="senha" value="#{msgs.campoSenha}" />
-		<p:password id="senha" value="#{loginMB.senha}" required="true" />
+		<p:password id="senha" value="#{loginMB.senha}" required="true"/>
 		<br />
 		
 		

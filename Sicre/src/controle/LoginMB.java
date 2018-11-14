@@ -1,11 +1,15 @@
 package controle;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import componentes.CaminhoURL;
+import modelo.dao.FuncionarioDAO;
 import modelo.dominio.Funcionario;
 
 @ManagedBean(name = "loginMB")
@@ -16,6 +20,10 @@ public class LoginMB {
 
 	private Funcionario funcionario = new Funcionario();
 	private boolean autenticado = false;
+	
+	FuncionarioDAO dao = new FuncionarioDAO();
+	
+	List<Funcionario> funcion = dao.lerTodos();
 
 	// Dados do formulário de login
 	private String login;
@@ -71,10 +79,28 @@ public class LoginMB {
 	public String acaoAutenticar() {
 
 		boolean seguir = false;
-
-		if ((login.equals(login)) && (senha.equals(senha))) {
-			seguir = true;
+		
+		String loginDefault = "000.000.000-00";
+	
+		
+		for (Funcionario funcionario : funcion) {
+			if((funcionario.getCpf().equals(login) && funcionario.getSenha().equals(senha)) 
+					|| (login.equals(loginDefault)) && (senha.equals("admin"))) {
+				seguir = true;
+			}
 		}
+		
+		
+		/*if ((login.equals(loginDefault)) && (senha.equals("admin"))) {
+			seguir = true;
+			System.out.println("Caiu aqui 1");
+		}else if ((login.equals( funcionario.getCpf())  ) && (  senha.equals(funcionario.getSenha())  )){
+			seguir = true;
+			System.out.println("Caiu aqui 2");
+		}else {
+			seguir = false;
+			System.out.println("Caiu aqui 3");
+		}*/
 
 		if (seguir) {
 			this.autenticado = true;
