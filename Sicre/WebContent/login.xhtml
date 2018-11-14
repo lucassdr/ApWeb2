@@ -6,11 +6,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="modelo.xhtml">
-	<ui:define name="titulo">#{msgs.tituloLogin}</ui:define>
+<h:head>
+	<title>#{msgs.tituloLogin}</title>
+</h:head>
+<h:body>
 
-	<ui:define name="conteudo">
-
+	<h:form>
 		<p:outputLabel for="login" value="#{msgs.campoNomeUsuario}" />
 		<p:inputText id="login" value="#{loginMB.login}" required="true" />
 		<br />
@@ -22,7 +23,8 @@
 		
 		<p:commandButton ajax="false" action="#{loginMB.acaoAutenticar}"
 			value="#{msgs.botaoLogin}"></p:commandButton>
+	</h:form>
 
-	</ui:define>
-</ui:composition>
+	
+</h:body>
 </html>
