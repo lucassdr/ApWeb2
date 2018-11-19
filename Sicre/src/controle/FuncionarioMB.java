@@ -2,9 +2,14 @@ package controle;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.component.message.Message;
 
 import componentes.CaminhoURL;
 import modelo.dao.EmpresaDAO;
@@ -24,6 +29,7 @@ public class FuncionarioMB implements Serializable{
 
 	private List<Funcionario> funcionarios = null;
 	private List<Empresa> empresas = null;
+	List<Funcionario> funcion = dao.lerTodos();
 
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -76,7 +82,14 @@ public class FuncionarioMB implements Serializable{
 	}
 
 	public String acaoSalvar() {
-		// funcionario.setSenha(senhaTemporaria);
+		
+		for(Funcionario funcionarioBanco : funcion) {
+			if(funcionarioBanco.getCpf().equals(funcionario.getCpf())) {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "CPF já cadastrado no sistema", null);
+				FacesContext.getCurrentInstance().addMessage(null, message);
+				return CaminhoURL.REQUEST_PATH_EMPLOYEE;	
+			}
+		}
 		
 		this.dao.salvar(this.funcionario);
 		return acaoListar();
