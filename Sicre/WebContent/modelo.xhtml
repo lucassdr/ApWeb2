@@ -18,9 +18,10 @@
 				
 			</f:facet>
 
-			<f:facet name="right">
-			<p:clock pattern="dd/MM/yyyy HH:mm:ss"/>
-				BOTOES AQUI
+			<f:facet name="left">
+				<p:commandButton value="#{msgs.menuPrincipal}" action="#{FuncionarioMB.menuPrincipal}" immediate="true"/>
+				<p:commandButton value="#{msgs.sair}" action="#{loginMB.acaoSair}" immediate="true" />
+				<p:clock pattern="dd/MM/yyyy HH:mm:ss"/> 
 			</f:facet>
 		</p:toolbar>
 
