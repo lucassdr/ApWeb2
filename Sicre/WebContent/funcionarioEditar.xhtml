@@ -71,7 +71,7 @@
 
 			<p:outputLabel for="empresa" value="#{msgs.empresa}" />
 			<p:selectOneMenu id="empresa"
-				value="#{FuncionarioMB.funcionario.empresa}">
+				value="#{FuncionarioMB.funcionario.empresa}" filter="true" filterMatchMode="startsWith" autoWidth="true" height="200">
 				<f:selectItem itemLabel="#{msgs.selecione}" itemValue="" />
 				<f:selectItems value="#{FuncionarioMB.empresas}" var="empresa"
 					itemLabel="#{empresa.nomeFantasia}" />
@@ -82,14 +82,14 @@
 				feedback="true" autocomplete="false" />
 
 			<h:panelGrid columns="1" cellpadding="5">
-				<p:commandButton value="Ver senha" type="button"
+				<p:commandButton value="#{msgs.botaoVerSenha}" type="button"
 					onclick="PF('dlg1').show();" />
 			</h:panelGrid>
-			<p:dialog header="Sua senha é" widgetVar="dlg1" minHeight="40"
+			<p:dialog header="#{msgs.textoSuaSenha}" widgetVar="dlg1" minHeight="40"
 				draggable="false">
 				<h:outputText value="#{FuncionarioMB.funcionario.senha}" />
 			</p:dialog>
-			
+
 			<h:outputText value="" />
 			<h:panelGroup>
 				<p:commandButton id="salvar" ajax="false"
