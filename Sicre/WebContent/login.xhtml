@@ -24,6 +24,26 @@
 		
 		<p:commandButton ajax="false" action="#{loginMB.acaoAutenticar}"
 			value="#{msgs.botaoLogin}"></p:commandButton>
+			
+			
+		
+		<p:commandButton value="#{msgs.ajuda}" type="button"  onclick="PF('dlg1').show();"  />
+		
+			
+		
+			
+			
+			<p:dialog header="#{msgs.ajudaTextoTitulo}" widgetVar="dlg1" minHeight="40"
+				draggable="false">
+				<h:outputText value="#{msgs.ajudaTextoCorpo1}" />
+				<br/>
+				<br/>
+				<br/>
+				<h:outputText value="#{msgs.ajudaTextoCorpoAcesso1}" />
+				<br/>
+				<br/>
+				<h:outputText value="#{msgs.ajudaTextoCorpoAcesso2}" />
+			</p:dialog>
 	</h:form>
 
 	
