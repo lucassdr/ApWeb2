@@ -13,39 +13,32 @@
 
 	<h:form>
 		<p:outputLabel for="login" value="#{msgs.campoNomeUsuario}" />
-		
-		<p:inputMask id="login" value="#{loginMB.login}" mask="999.999.999-99" maxlength="14" required="true" autoClear="true" autocomplete="false" />
+
+		<p:inputMask id="login" value="#{loginMB.login}" mask="999.999.999-99"
+			maxlength="14" required="true" autoClear="true" autocomplete="false" />
 		<br />
 
 		<p:outputLabel for="senha" value="#{msgs.campoSenha}" />
-		<p:password id="senha" value="#{loginMB.senha}" required="true"/>
+		<p:password id="senha" value="#{loginMB.senha}" required="true" />
 		<br />
-		
-		
+
 		<p:commandButton ajax="false" action="#{loginMB.acaoAutenticar}"
 			value="#{msgs.botaoLogin}"></p:commandButton>
-			
-			
-		
-		<p:commandButton value="#{msgs.ajuda}" type="button"  onclick="PF('dlg1').show();"  />
-		
-			
-		
-			
-			
-			<p:dialog header="#{msgs.ajudaTextoTitulo}" widgetVar="dlg1" minHeight="40"
-				draggable="false">
-				<h:outputText value="#{msgs.ajudaTextoCorpo1}" />
-				<br/>
-				<br/>
-				<br/>
-				<h:outputText value="#{msgs.ajudaTextoCorpoAcesso1}" />
-				<br/>
-				<br/>
-				<h:outputText value="#{msgs.ajudaTextoCorpoAcesso2}" />
-			</p:dialog>
+
+		<p:commandButton value="#{msgs.ajuda}" type="button"
+			onclick="PF('dlg1').show();" />
+
+		<p:dialog header="#{msgs.ajudaTextoTitulo}" widgetVar="dlg1"
+			minHeight="40" draggable="false">
+			<h:outputText value="#{msgs.ajudaTextoCorpo1}" />
+			<br />
+			<br />
+			<h:outputText value="#{msgs.ajudaTextoCorpoAcesso1}" />
+			<br />
+			<h:outputText value="#{msgs.ajudaTextoCorpoAcesso2}" />
+		</p:dialog>
 	</h:form>
 
-	
+
 </h:body>
 </html>

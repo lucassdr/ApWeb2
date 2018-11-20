@@ -11,16 +11,15 @@
 </h:head>
 <body>
 	<p:messages errorStyle="color:#FF0000" infoStyle="color:#0000FF" />
-	
-	
-	<p:confirmDialog global="true" showEffect="bounce"
-			hideEffect="explode">
-			<p:commandButton value="Sim" type="button"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="Não" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
-	
+
+
+	<p:confirmDialog global="true" showEffect="bounce" hideEffect="explode">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
+
 	<h:form>
 
 		<p:commandButton value="#{msgs.menuPrincipal}"
@@ -29,7 +28,7 @@
 		<p:commandButton action="#{FuncionarioMB.abrirInclusao}"
 			value="#{msgs.buttonAbrirInclusao}"></p:commandButton>
 		<br />
-		
+
 		<h:outputText value="#{msgs.textoListaFuncionariosVazia}"
 			rendered="#{empty FuncionarioMB.funcionarios}" />
 
@@ -47,10 +46,14 @@
 			<p:column>
 				<f:facet name="header">#{msgs.textoOpcoes}</f:facet>
 				<p:commandLink
-					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}" value="#{msgs.textoEditar}" >
+					action="#{FuncionarioMB.acaoAbrirAlteracao(func.matricula)}"
+					value="#{msgs.textoEditar}">
 				</p:commandLink>
-				<p:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}" value="#{msgs.textoExcluir}">
-					<p:confirm message="Deseja remover o funcionário #{FuncionarioMB.funcionario.nome} de matrícula #{func.matricula}?"  header="Confirmação" />
+				<p:commandLink action="#{FuncionarioMB.acaoExcluir(func.matricula)}"
+					value="#{msgs.textoExcluir}">
+					<p:confirm
+						message="Deseja remover o funcionário #{FuncionarioMB.funcionario.nome} de matrícula #{func.matricula}?"
+						header="Confirmação" />
 				</p:commandLink>
 			</p:column>
 
@@ -95,14 +98,14 @@
 				<f:facet name="header">#{msgs.textoRegistroGeralRG} </f:facet>
 				<h:outputText value="#{func.rg}"></h:outputText>
 			</p:column>
-			
+
 			<p:column>
 				<f:facet name="header">#{msgs.empresa}</f:facet>
 				<h:outputText value="#{func.empresa.nomeFantasia}"></h:outputText>
 			</p:column>
 
 		</p:dataTable>
-		
+
 
 	</h:form>
 </body>
