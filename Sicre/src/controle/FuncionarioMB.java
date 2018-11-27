@@ -85,7 +85,9 @@ public class FuncionarioMB implements Serializable{
 		
 		for(Funcionario funcionarioBanco : funcion) {
 			if(funcionarioBanco.getCpf().equals(funcionario.getCpf())) {
-				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "CPF já cadastrado no sistema", null);
+				FacesContext context = FacesContext.getCurrentInstance();
+				String mensagem = context.getApplication().evaluateExpressionGet(context, "#{msgs.cpfJaCadastrado}", String.class);
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, mensagem, null);
 				FacesContext.getCurrentInstance().addMessage(null, message);
 				return CaminhoURL.REQUEST_PATH_EMPLOYEE;	
 			}
