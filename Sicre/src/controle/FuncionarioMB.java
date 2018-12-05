@@ -2,14 +2,11 @@ package controle;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
-import org.primefaces.component.message.Message;
 
 import componentes.CaminhoURL;
 import modelo.dao.EmpresaDAO;
@@ -82,7 +79,6 @@ public class FuncionarioMB implements Serializable{
 	}
 
 	public String acaoSalvar() {
-		
 		for(Funcionario funcionarioBanco : funcion) {
 			if(funcionarioBanco.getCpf().equals(funcionario.getCpf())) {
 				FacesContext context = FacesContext.getCurrentInstance();
